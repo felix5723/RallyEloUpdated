@@ -1,0 +1,45 @@
+<head>
+  <title>Rally Elo</title>
+</head>
+
+<div>
+  <canvas id="myChart" width="900" height="400"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById("myChart");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: {{ labels | safe }},
+      datasets: [
+        {
+          label: "elo total",
+          data: {{ eloTotal | safe }},
+          borderWidth: 1,
+        },
+        {
+          label: "elo kombi",
+          data: {{ eloKombi | safe }},
+          borderWidth: 1,
+        },
+        {
+          label: "elo klass",
+          data: {{ eloKlass | safe }},
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+        responsive: false,
+      scales: {
+        y: {
+          beginAtZero: false,
+        },
+      },
+    },
+  });
+</script>

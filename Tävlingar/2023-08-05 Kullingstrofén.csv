@@ -1,0 +1,343 @@
+total_place,klass_place,number,driverklass,name,klubb,klass,driver
+1,1,7,A,Martin Jakobsson,Kolsva MS,4 wd,driver
+1,1,7,A,Henrik Lundh,Eskilstuna MK,4 wd,codriver
+2,2,308,A,Fredrik Grahn,SMK Örebro,4 wd,driver
+2,2,308,A,Ida Lidebjer Granberg,Asarums MS,4 wd,codriver
+3,3,5,A,David Nattsson,Falköpings MK,4 wd,driver
+3,3,5,A,Sebastian Johansson,Götene MK,4 wd,codriver
+4,4,12,C,Filip Karlström,Gullabo RC,4 wd,driver
+4,4,12,C,Tomas Norrstrand,Taxinge MK,4 wd,codriver
+5,1,28,A,Melvin Bengtsson,Kullings MS,A-förare 2 WD,driver
+5,1,28,A,Carl Eriksson,Skillingaryds MK,A-förare 2 WD,codriver
+6,5,10,B,Mikael Hallqvist,Finspångs MS,4 wd,driver
+6,5,10,B,Ronnie Maxe,Finspångs MS,4 wd,codriver
+7,2,32,A,Thomas Lennstrand,Kullings MS,A-förare 2 WD,driver
+7,2,32,A,Conny Erixon,Kullings MS,A-förare 2 WD,codriver
+8,1,107,B,Joel Norqvist,SMK Trollhättan,B-förare 2 WD,driver
+8,1,107,B,Lars Andersson,SMK Trollhättan,B-förare 2 WD,codriver
+9,3,21,A,Lars Engström,Kullings MS,A-förare 2 WD,driver
+9,3,21,A,Roger Dahlberg,Kristdala MS,A-förare 2 WD,codriver
+10,2,105,B,Rasmus Carlson,Katrineholms MK,B-förare 2 WD,driver
+10,2,105,B,Sam Karlsson,Älmhults MK,B-förare 2 WD,codriver
+11,3,93,B,Alexander Andersson,MK Kinda,B-förare 2 WD,driver
+11,3,93,B,Kristoffer Ringström,Fjugesta MS,B-förare 2 WD,codriver
+12,4,94,B,Rasmus Holm,Hällefors MK,B-förare 2 WD,driver
+12,4,94,B,Christian Ohlsson,Forshaga MC,B-förare 2 WD,codriver
+13,4,15,A,Christopher Zeijlon,Skillingaryds MK,A-förare 2 WD,driver
+13,4,15,A,Christofer Svensson,Skillingaryds MK,A-förare 2 WD,codriver
+14,5,16,A,Johan Svensson,SMK Valdemarsvik,A-förare 2 WD,driver
+14,5,16,A,Fredrik Eklund,SMK Valdemarsvik,A-förare 2 WD,codriver
+15,6,17,A,Emil Carlsson,Katrineholms MK,A-förare 2 WD,driver
+15,6,17,A,Tobias Abrahamsson,Katrineholms MK,A-förare 2 WD,codriver
+16,6,6,A,Mattias Nyström,Ludvika MS,4 wd,driver
+16,6,6,A,Jonna Nyström,Ludvika MS,4 wd,codriver
+17,7,1,A,Mattias Lindberg,Dals MK,4 wd,driver
+17,7,1,A,Marcus Bengtsson,Dals MK,4 wd,codriver
+18,1,160,C,Robin Gustafsson,MK Team Westom,C-förare 2 WD,driver
+18,1,160,C,Erik Bergström,MK Team Westom,C-förare 2 WD,codriver
+19,5,95,B,Linus Flodin,Kils MK Bil,B-förare 2 WD,driver
+19,5,95,B,Tobias Fredriksson,Säffle MC,B-förare 2 WD,codriver
+20,7,29,A,Tommy Eliasson,Storfors MK,A-förare 2 WD,driver
+20,7,29,A,Richard Svensson,Storfors MK,A-förare 2 WD,codriver
+21,2,354,C,Oskar Andersson,Vimmerby MS,C-förare 2 WD,driver
+21,2,354,C,Alexander Glavsjö,Fryksdalens MK,C-förare 2 WD,codriver
+22,8,41,A,Bengt Carlsson,Vara MK,A-förare 2 WD,driver
+22,8,41,A,Andreas Aleryd,Vara MK,A-förare 2 WD,codriver
+23,9,34,A,Emil Lennartsson,MK Speed,A-förare 2 WD,driver
+23,9,34,A,Mikael Pettersson,SMK Gävle,A-förare 2 WD,codriver
+24,1,330,A,Antti Johannesson,Eskilstuna MK,App K 2 WD -1981,driver
+24,1,330,A,Anton Persson,Strängnäs AMS,App K 2 WD -1981,codriver
+25,6,96,B,Joel Persson,Ilsbo MK,B-förare 2 WD,driver
+25,6,96,B,Tobias Sandmark,Sandvikens MK,B-förare 2 WD,codriver
+26,10,27,A,Mikael Ericsson,SMK Trollhättan,A-förare 2 WD,driver
+26,10,27,A,Martin Svensson,SMK Trollhättan,A-förare 2 WD,codriver
+27,11,25,A,Rasmus Pettersson,Katrineholms MK,A-förare 2 WD,driver
+27,11,25,A,Leif Fredriksson,Katrineholms MK,A-förare 2 WD,codriver
+28,2,67,A,Eddie Hörbing,SMK Karlskoga,App K 2 WD -1981,driver
+28,2,67,A,Annette Åhman,Almunge MK,App K 2 WD -1981,codriver
+29,12,22,A,Emil Friman,Vetlanda RRC,A-förare 2 WD,driver
+29,12,22,A,Tom Törngren,Gränna MK,A-förare 2 WD,codriver
+30,8,4,A,Göran Lindström,Huddinge MK,4 wd,driver
+30,8,4,A,Kjell Andersson,Huddinge MK,4 wd,codriver
+31,13,38,A,Daniel Hoffmann,SMK Linde,A-förare 2 WD,driver
+31,13,38,A,Erik Gustavsson,SMK Linde,A-förare 2 WD,codriver
+32,7,115,B,Filip Ekenved,Göteborgs MF,B-förare 2 WD,driver
+32,7,115,B,Kim Pettersson,SMK Trollhättan,B-förare 2 WD,codriver
+33,3,58,A,Kjell Fransson,Vimmerby MS,App K 2 WD -1981,driver
+33,3,58,A,Peter Fransson,Vimmerby MS,App K 2 WD -1981,codriver
+34,4,62,A,Markus Börjesson,Älvbygdens MK,App K 2 WD -1981,driver
+34,4,62,A,Björn Ekenved,Göteborgs MF,App K 2 WD -1981,codriver
+35,3,163,C,Kevin Eriksson,SMK Trollhättan,C-förare 2 WD,driver
+35,3,163,C,Andreas Andersson,SMK Trollhättan,C-förare 2 WD,codriver
+36,8,337,B,Jonas Helgesson,Älvbygdens MK,B-förare 2 WD,driver
+36,8,337,B,Marcus Marin,Älvbygdens MK,B-förare 2 WD,codriver
+37,9,118,B,Hasse Ericsson,Kullings MS,B-förare 2 WD,driver
+37,9,118,B,Rikard Jakobsson,Kullings MS,B-förare 2 WD,codriver
+38,9,2,A,Ingvar Andersson,Hässleholms MK,4 wd,driver
+38,9,2,A,Adam Andersson,Hässleholms MK,4 wd,codriver
+39,14,30,A,Bengt Abrahamsson,Kullings MS,A-förare 2 WD,driver
+39,14,30,A,Pierre Ellison,Säffle MC,A-förare 2 WD,codriver
+40,10,9,B,Hannah Jakobsson,Kolsva MS,4 wd,driver
+40,10,9,B,Christer Carlsson,Katrineholms MK,4 wd,codriver
+41,10,100,B,Wille Lennartsson,MK Speed,B-förare 2 WD,driver
+41,10,100,B,Erika Lindgren,Haninge MK,B-förare 2 WD,codriver
+42,11,114,B,Emil Johansson,Falköpings MK,B-förare 2 WD,driver
+42,11,114,B,Johanna Hallqvist,Vara MK,B-förare 2 WD,codriver
+43,12,98,B,Alexander Alexandersson,Vimmerby MS,B-förare 2 WD,driver
+43,12,98,B,Jonas Frejd,Vimmerby MS,B-förare 2 WD,codriver
+44,5,69,A,Rune Karlsson,Kullings MS,App K 2 WD -1981,driver
+44,5,69,A,Mattias Löfman,Vara MK,App K 2 WD -1981,codriver
+45,1,46,A,Oscar Östlund,Hällefors MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+45,1,46,A,Daniel Andersson,VÖMK,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+46,13,99,B,Kenneth Ringström,Fjugesta MS,B-förare 2 WD,driver
+46,13,99,B,Håkan Berger,Fjugesta MS,B-förare 2 WD,codriver
+47,14,101,B,Sven Hansen,Fryksdalens MK,B-förare 2 WD,driver
+47,14,101,B,Niklas Haag,Munkfors MC,B-förare 2 WD,codriver
+48,4,162,C,Erik Hult,Katrineholms MK,C-förare 2 WD,driver
+48,4,162,C,Melker Lundin,Katrineholms MK,C-förare 2 WD,codriver
+49,15,37,A,Charles Andersson,Borlänge MK,A-förare 2 WD,driver
+49,15,37,A,Lars Grip,SMK Hälsinge,A-förare 2 WD,codriver
+50,2,49,A,Magnus Lindqvist,Laxå MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+50,2,49,A,Dennis Persson,Laxå MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+51,15,104,B,Kevin Möller,Norrköpings MK,B-förare 2 WD,driver
+51,15,104,B,Malin Wall,Norrköpings MK,B-förare 2 WD,codriver
+52,16,39,A,Lars-Ove Biffen Olsson,Forshaga MC,A-förare 2 WD,driver
+52,16,39,A,Torbjörn Jönsson,Forshaga MC,A-förare 2 WD,codriver
+53,16,102,B,Hans Johansson,SMK Valdemarsvik,B-förare 2 WD,driver
+53,16,102,B,Magnus Lindwall,SMK Valdemarsvik,B-förare 2 WD,codriver
+54,5,166,C,Jesper Sandgren,Falköpings MK,C-förare 2 WD,driver
+54,5,166,C,Urban Fröjd,Falköpings MK,C-förare 2 WD,codriver
+55,3,44,A,Daniel Suvala,SMK Nyköping,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+55,3,44,A,Patrik Johansson,SMK Nyköping,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+56,4,47,A,Niklas Berglund,Eskilstuna MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+56,4,47,A,Henrik Pedersen,SMK Nyköping,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+57,17,119,B,Filip Rosendahl,Toarps MK Borås,B-förare 2 WD,driver
+57,17,119,B,Mikael Rosendahl,Toarps MK Borås,B-förare 2 WD,codriver
+58,5,45,A,Kent Larsson,MK Team Westom,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+58,5,45,A,Caroline Gassner,MK Team Westom,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+59,6,52,B,Willy Klarén,Kullings MS,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+59,6,52,B,Joakim Nygårdh,Kullings MS,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+60,7,57,A,Anders Olsson,Vänersborgs MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+60,7,57,A,Sven Olsson,Vänersborgs MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+61,1,124,C,Mattias Holm,SMK Trollhättan,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+61,1,124,C,Johan Holm,SMK Trollhättan,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+62,6,63,A,Jan Hagberg,Toarps MK Borås,App K 2 WD -1981,driver
+62,6,63,A,Per Mikael Ekström,Toarps MK Borås,App K 2 WD -1981,codriver
+63,18,109,B,Mats Ollakka,SMK Trollhättan,B-förare 2 WD,driver
+63,18,109,B,Peter T Modig,Fryksdalens MK,B-förare 2 WD,codriver
+64,19,110,B,Jim Johansson,Falköpings MK,B-förare 2 WD,driver
+64,19,110,B,Pontus Johansson,Falköpings MK,B-förare 2 WD,codriver
+65,8,53,B,Tim Palmqvist,Degerfors RC,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+65,8,53,B,Robin Palmqvist,Degerfors RC,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+66,1,172,J,Hugo Carlberg,Fagersta MK,Ungdomsrally,driver
+66,1,172,J,Stefan Carlberg,Fagersta MK,Ungdomsrally,codriver
+67,9,51,B,Gustaf Ekenved,Göteborgs MF,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+67,9,51,B,Viktoria Johansson,SMK Nyköping,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+68,2,125,C,Jim Andersson,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+68,2,125,C,Håkan Andersson,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+69,7,68,B,Peter Dahlsund,Varbergs MK,App K 2 WD -1981,driver
+69,7,68,B,Carina Larsson,Varbergs MK,App K 2 WD -1981,codriver
+70,6,169,C,Pontus Persson,SMK Trollhättan,C-förare 2 WD,driver
+70,6,169,C,Alexander Mattsson,SMK Trollhättan,C-förare 2 WD,codriver
+71,10,56,B,Stein Frederic Akre,Finnskoga MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+71,10,56,B,Eivind Akre,Finnskoga MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+72,8,61,A,Ruben Davidsson,VÖMK,App K 2 WD -1981,driver
+72,8,61,A,Andreas Andersson,VÖMK,App K 2 WD -1981,codriver
+73,20,108,B,Johan Andreasson,Vara MK,B-förare 2 WD,driver
+73,20,108,B,Christian Andreasson,Vara MK,B-förare 2 WD,codriver
+74,21,117,B,Joakim Smedberg,Götene MK,B-förare 2 WD,driver
+74,21,117,B,Sonny Torgrimsson,Tidaholms MK,B-förare 2 WD,codriver
+75,9,66,A,Anders Svensson,VÖMK,App K 2 WD -1981,driver
+75,9,66,A,Tommy Andersson,VÖMK,App K 2 WD -1981,codriver
+76,11,50,B,Roger Karlsson,VÖMK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+76,11,50,B,Josefina Hellkvist,VÖMK,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+77,2,174,J,Ville Larsson,Kullings MS,Ungdomsrally,driver
+77,2,174,J,Ralf Larsson,Kullings MS,Ungdomsrally,codriver
+78,22,121,B,Stig Christensen,Falköpings MK,B-förare 2 WD,driver
+78,22,121,B,Peter Lindman,Falköpings MK,B-förare 2 WD,codriver
+79,3,128,C,Lucas Axelsson,MK Kopparberg,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+79,3,128,C,Victor Larsson,Nora MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+80,1,86,A,Jonas Lindfors,Eskilstuna MK,"A/B-förare Gr E, R1A",driver
+80,1,86,A,Erik Lindfors,Hässleholms MK,"A/B-förare Gr E, R1A",codriver
+81,2,83,B,Alexander Broberg,SMK Nyköping,"A/B-förare Gr E, R1A",driver
+81,2,83,B,Rickard Broberg,Värmdö BK,"A/B-förare Gr E, R1A",codriver
+82,12,48,B,Ludwig Nilsson,Norrköpings MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+82,12,48,B,Albin Pettersson,SMK Linde,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+83,7,164,C,Richard Jonsson,Götene MK,C-förare 2 WD,driver
+83,7,164,C,Toni Andersson,Götene MK,C-förare 2 WD,codriver
+84,3,87,A,Stefan Ottosson,Nässjö MK,"A/B-förare Gr E, R1A",driver
+84,3,87,A,Sofie Adolfsson,Nässjö MK,"A/B-förare Gr E, R1A",codriver
+85,4,127,C,David Sandström,Falköpings MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+85,4,127,C,Marcus Claesson,Falköpings MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+86,5,123,C,Wilmer Jonsson,VÖMK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+86,5,123,C,Melvin Steffansson,Älvbygdens MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+87,6,131,C,Albin Ragnarsson,Göteborgs MF,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+87,6,131,C,Anton Jansson,Ulricehamns MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+88,7,122,C,Tobias Bilfeldt,SMK Valdemarsvik,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+88,7,122,C,Joakim Bilfeldt,SMK Valdemarsvik,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+89,8,170,C,Emil Sonesson,Bengtsfors MC,C-förare 2 WD,driver
+89,8,170,C,Christer Sonesson,Bengtsfors MC,C-förare 2 WD,codriver
+90,10,64,A,Bosse Sundin,Dals MK,App K 2 WD -1981,driver
+90,10,64,A,Tommie Stjern,MK Trophy,App K 2 WD -1981,codriver
+91,11,74,C,Jocke Petersson,Tjust MK,App K 2 WD -1981,driver
+91,11,74,C,Fredrik Strömberg,Tjust MK,App K 2 WD -1981,codriver
+92,8,138,C,John Magnusson,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+92,8,138,C,Emma Magnusson,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+93,12,70,A,Thomas Johansson,SMK Trollhättan,App K 2 WD -1981,driver
+93,12,70,A,Anders Birath,SMK Trollhättan,App K 2 WD -1981,codriver
+94,13,55,B,Mattias Jakobsson,Dals MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+94,13,55,B,Joakim Johannesson,Dals MK,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+95,3,175,J,William Israels,Lima MS,Ungdomsrally,driver
+95,3,175,J,Camilla Holmquist,MK Ran,Ungdomsrally,codriver
+96,9,149,C,Felix Nordenfors,SMK Trollhättan,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+96,9,149,C,Max Fredlund,SMK Trollhättan,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+97,4,84,A,Håkan Johansson,Katrineholms MK,"A/B-förare Gr E, R1A",driver
+97,4,84,A,Niklas Solenö,Katrineholms MK,"A/B-förare Gr E, R1A",codriver
+98,13,65,A,Ingvar Nilsson,Hällefors MK,App K 2 WD -1981,driver
+98,13,65,A,Reine Bergström,Hällefors MK,App K 2 WD -1981,codriver
+99,10,126,C,Hugo Kahnborg,Linköpings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+99,10,126,C,Oliver Höög,Linköpings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+100,11,140,C,Mattias Ekberg,SMK Trollhättan,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+100,11,140,C,Christer Holm,SMK Trollhättan,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+101,12,142,C,Tobias Pettersson Nordwall,Laxå MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+101,12,142,C,Peter Nordwall,Christinehamns MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+102,14,73,C,Anders Svensson,Årjängs MK,App K 2 WD -1981,driver
+102,14,73,C,Kenneth Axelsson,Årjängs MK,App K 2 WD -1981,codriver
+103,13,148,C,Albin Esaiasson,Ryds MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+103,13,148,C,Mattis Lundström,Ryds MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+104,5,85,B,Pär Henrik Andersson,Eskilstuna MK,"A/B-förare Gr E, R1A",driver
+104,5,85,B,Susanne Carlsson,Eskilstuna MK,"A/B-förare Gr E, R1A",codriver
+105,6,90,B,Patrik Lund,Målilla MK,"A/B-förare Gr E, R1A",driver
+105,6,90,B,Johan Karlsson,Vimmerby MS,"A/B-förare Gr E, R1A",codriver
+106,14,143,C,Simon Arvidsson,Falköpings MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+106,14,143,C,Jessica Svensson,Falköpings MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+107,15,135,C,Christer Johansson,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+107,15,135,C,Anders Sääw,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+108,7,92,A,Philip Ahlstrand,Götene MK,"A/B-förare Gr E, R1A",driver
+108,7,92,A,Filip Bengtsson,Vara MK,"A/B-förare Gr E, R1A",codriver
+109,16,145,C,Nils Leijer,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+109,16,145,C,Hanna Breman,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+110,14,54,A,Bo Fransson,Wäxjö MS,"A/B-förare Gr F, VOC Gr N<1600, R1B",driver
+110,14,54,A,Jannika Fransson,Wäxjö MS,"A/B-förare Gr F, VOC Gr N<1600, R1B",codriver
+111,15,78,C,Ingvar Svensson,Toarps MK Borås,App K 2 WD -1981,driver
+111,15,78,C,Jan Gotting,Toarps MK Borås,App K 2 WD -1981,codriver
+112,17,134,C,Peter Müller,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+112,17,134,C,Carina Modig,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+113,18,129,C,Carl-Magnus Zetterlund,Hallsbergs MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+113,18,129,C,Mattias Jansson,Hällefors MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+114,8,91,B,Håkan Bauer,Östergyllen RC,"A/B-förare Gr E, R1A",driver
+114,8,91,B,Marika Eng,Östergyllen RC,"A/B-förare Gr E, R1A",codriver
+115,19,137,C,Stefan Andersson,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+115,19,137,C,Göran Thell,Dals MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+116,1,157,C,Albin Karlsson,Dals MK,"C-förare Gr E, R1A",driver
+116,1,157,C,Katharina Magnusson,SMK Trollhättan,"C-förare Gr E, R1A",codriver
+117,16,80,C,Bernt Bengtsson,SMK Trollhättan,App K 2 WD -1981,driver
+117,16,80,C,Mikael Kullberg,SMK Trollhättan,App K 2 WD -1981,codriver
+118,2,155,C,Mikael Andersson,Vänersborgs MK,"C-förare Gr E, R1A",driver
+118,2,155,C,Vincent Lidre Andersson,Vänersborgs MK,"C-förare Gr E, R1A",codriver
+119,9,171,C,Mikael Wigholm,Falköpings MK,C-förare 2 WD,driver
+119,9,171,C,Sven-Ove Wigholm,Falköpings MK,C-förare 2 WD,codriver
+120,3,159,C,Jakob Sandberg,Norrahammars MK,"C-förare Gr E, R1A",driver
+120,3,159,C,Petra Sandberg,Norrahammars MK,"C-förare Gr E, R1A",codriver
+121,17,76,B,Gunnar Asplund,Vaxholms MK,App K 2 WD -1981,driver
+121,17,76,B,Olle Asplund,Vaxholms MK,App K 2 WD -1981,codriver
+122,20,144,C,Börje Johansson,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+122,20,144,C,Ingrid Johansson,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+123,4,177,J,Emil Karlsson,Södra Sunnerbos MK,Ungdomsrally,driver
+123,4,177,J,Patrik Berglund,Södra Sunnerbos MK,Ungdomsrally,codriver
+124,4,154,C,Sebastian Jahnson,SMK Nyköping,"C-förare Gr E, R1A",driver
+124,4,154,C,Sandra Lundberg,Enköpings MK,"C-förare Gr E, R1A",codriver
+125,18,79,A,Johny Abrahamsson,Ulricehamns MK,App K 2 WD -1981,driver
+125,18,79,A,Celso Goncalves,Ulricehamns MK,App K 2 WD -1981,codriver
+126,9,88,A,Tomas Östermyr,Kullings MS,"A/B-förare Gr E, R1A",driver
+126,9,88,A,Gunnar Larsson,Kullings MS,"A/B-förare Gr E, R1A",codriver
+127,19,77,C,Fredrik Zettervall,Falköpings MK,App K 2 WD -1981,driver
+127,19,77,C,Peter Dalefalk,Falköpings MK,App K 2 WD -1981,codriver
+128,21,147,C,Linus Sköld,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+128,21,147,C,Jimmy Sköld,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+129,5,156,C,Oskar Jansson,Vara MK,"C-förare Gr E, R1A",driver
+129,5,156,C,Jonas Kolbert,Götene MK,"C-förare Gr E, R1A",codriver
+130,17,43,A,Jerry Nordén,Falköpings MK,A-förare 2 WD,driver
+130,17,43,A,Lars Anders Sandborg,Falköpings MK,A-förare 2 WD,codriver
+131,6,158,C,Per Tangsjö,Norrahammars MK,"C-förare Gr E, R1A",driver
+131,6,158,C,Magnus Alexandersson,Norrahammars MK,"C-förare Gr E, R1A",codriver
+132,10,165,C,Madicken Swärdh,Katrineholms MK,C-förare 2 WD,driver
+132,10,165,C,Martin Heggblad,Norrköpings MK,C-förare 2 WD,codriver
+133,20,81,C,Risto Vainio,Kullings MS,App K 2 WD -1981,driver
+133,20,81,C,Roger Hallgren,Kullings MS,App K 2 WD -1981,codriver
+134,11,168,C,Robbin Dahlgren,Säffle MC,C-förare 2 WD,driver
+134,11,168,C,Niklas Höög,Åmåls MK,C-förare 2 WD,codriver
+135,5,173,J,Emil Fällman,SMK Vingåker,Ungdomsrally,driver
+135,5,173,J,Tobias Lindström,Katrineholms MK,Ungdomsrally,codriver
+brutit,brutit,8,B,Kim Nydén,SMK Linde,4 wd,driver
+brutit,brutit,8,B,Jonas Sandin,SMK Linde,4 wd,codriver
+brutit,brutit,97,B,Erik Stenberg,Kullings MS,B-förare 2 WD,driver
+brutit,brutit,97,B,Philip Haag,Vara MK,B-förare 2 WD,codriver
+brutit,brutit,31,A,Stefan Axelsson,Säffle MC,A-förare 2 WD,driver
+brutit,brutit,31,A,Per Wiksten,MK Ratten,A-förare 2 WD,codriver
+brutit,brutit,40,A,Mattias Monelius,SMK Örebro,A-förare 2 WD,driver
+brutit,brutit,40,A,Emil Arvidsson,Teknis MC,A-förare 2 WD,codriver
+brutit,brutit,33,A,Christoffer Jacobsson,Gotlands Mf:s BK,A-förare 2 WD,driver
+brutit,brutit,33,A,Toni Sundqvist,SMK Motala Bil,A-förare 2 WD,codriver
+brutit,brutit,161,C,Fredrik Karlsson,Nora MK,C-förare 2 WD,driver
+brutit,brutit,161,C,Weine Larsson,SMK Karlskoga,C-förare 2 WD,codriver
+brutit,brutit,19,A,Robert Eriksson,Eskilstuna MK,A-förare 2 WD,driver
+brutit,brutit,19,A,Jesper Samuelsson,Storfors MK,A-förare 2 WD,codriver
+brutit,brutit,18,A,Jonas Björnvad,Mälaröarnas MK,A-förare 2 WD,driver
+brutit,brutit,18,A,Elina Svensson,Strängnäs AMS,A-förare 2 WD,codriver
+brutit,brutit,59,A,Peter Johansson,SMK Nyköping,App K 2 WD -1981,driver
+brutit,brutit,59,A,Hasse Pettersson,SMK Nyköping,App K 2 WD -1981,codriver
+brutit,brutit,112,B,Robin Svensson,MK Ramunder Söderköping,B-förare 2 WD,driver
+brutit,brutit,112,B,Carita Holmberg,Norrköpings MK,B-förare 2 WD,codriver
+brutit,brutit,42,A,Jonas Sandgren,Falköpings MK,A-förare 2 WD,driver
+brutit,brutit,42,A,Nathalie Arvidsson,Falköpings MK,A-förare 2 WD,codriver
+brutit,brutit,113,B,Martin Häggman,Bengtsfors MC,B-förare 2 WD,driver
+brutit,brutit,113,B,Stefan Ottosson,Bengtsfors MC,B-förare 2 WD,codriver
+brutit,brutit,36,A,Björn Beck,Åmåls MK,A-förare 2 WD,driver
+brutit,brutit,36,A,Johan Svensson,Åmåls MK,A-förare 2 WD,codriver
+brutit,brutit,176,J,Linus Gustafsson Thor,Kullings MS,Ungdomsrally,driver
+brutit,brutit,176,J,Daniel Gustafsson,Kullings MS,Ungdomsrally,codriver
+brutit,brutit,103,B,Tommy Andersson,SMK Trollhättan,B-förare 2 WD,driver
+brutit,brutit,103,B,Mattias Hallqvist,Vara MK,B-förare 2 WD,codriver
+brutit,brutit,136,C,Samuel Elfstrand,Falköpings MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+brutit,brutit,136,C,Elin Cedergren,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+brutit,brutit,133,C,Peter Lanner,Vara MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+brutit,brutit,133,C,Thomas Brolin,Vara MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+brutit,brutit,152,C,Bruno Arvidsson,Falköpings MK,"C-förare Gr E, R1A",driver
+brutit,brutit,152,C,Fredrik Lans,Falköpings MK,"C-förare Gr E, R1A",codriver
+brutit,brutit,71,A,Per-Åke Forsman,Dals MK,App K 2 WD -1981,driver
+brutit,brutit,71,A,Sigge Flodin,Dals MK,App K 2 WD -1981,codriver
+brutit,brutit,13,C,Alexander Engwall,Vetlanda RRC,4 wd,driver
+brutit,brutit,13,C,Anders Engwall,Vetlanda RRC,4 wd,codriver
+brutit,brutit,153,C,Adam Johansson,Munkfors MC,"C-förare Gr E, R1A",driver
+brutit,brutit,153,C,Marcus Höglund,Munkfors MC,"C-förare Gr E, R1A",codriver
+brutit,brutit,20,A,Victor Bergsander,Kullings MS,A-förare 2 WD,driver
+brutit,brutit,20,A,Peter Wester,Kullings MS,A-förare 2 WD,codriver
+brutit,brutit,35,A,Fredrik Spång,Toarps MK Borås,A-förare 2 WD,driver
+brutit,brutit,35,A,Mikael Lindén,Toarps MK Borås,A-förare 2 WD,codriver
+brutit,brutit,146,C,Erik Ljungberg,Falköpings MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+brutit,brutit,146,C,Kim Gustafsson,Falköpings MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+brutit,brutit,130,C,Oliver Sundström,Vara MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+brutit,brutit,130,C,Fredrik Gustafsson,Kullings MS,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+brutit,brutit,111,B,Mikael Carlsson,Norrahammars MK,B-förare 2 WD,driver
+brutit,brutit,111,B,Karl Johan Ekvall,Jönköpings MK,B-förare 2 WD,codriver
+brutit,brutit,26,A,Gustav Johansson,Fryksdalens MK,A-förare 2 WD,driver
+brutit,brutit,26,A,Jim Hilmersson,MK Ratten,A-förare 2 WD,codriver
+brutit,brutit,116,B,Kent Johansson,Falköpings MK,B-förare 2 WD,driver
+brutit,brutit,116,B,Catalina Floberg,Falköpings MK,B-förare 2 WD,codriver
+brutit,brutit,72,B,Jimmy Alvarsson,Jönköpings MK,App K 2 WD -1981,driver
+brutit,brutit,72,B,Christopher Lönn,Jönköpings MK,App K 2 WD -1981,codriver
+brutit,brutit,24,A,William Andersson,Vimmerby MS,A-förare 2 WD,driver
+brutit,brutit,24,A,Robin Sällberg,Tjust MK,A-förare 2 WD,codriver
+brutit,brutit,82,B,Linus Erixon,Gotlands Mf:s BK,"A/B-förare Gr E, R1A",driver
+brutit,brutit,82,B,Mikael Nilsson,MK Gutarna,"A/B-förare Gr E, R1A",codriver
+brutit,brutit,141,C,Nicholas Nobeling,Sotenäs MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+brutit,brutit,141,C,Eric Gustafsson,Sotenäs MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+brutit,brutit,60,B,Johnny Sundström,Vara MK,App K 2 WD -1981,driver
+brutit,brutit,60,B,Anton Sundström,Vara MK,App K 2 WD -1981,codriver
+brutit,brutit,151,C,Rickard Strand,Volvo MK,"C-förare Gr F, VOC, Gr N<1600, R1B",driver
+brutit,brutit,151,C,Rickard Johansson,Vara MK,"C-förare Gr F, VOC, Gr N<1600, R1B",codriver
+brutit,brutit,106,B,David Stafås,Lima MS,B-förare 2 WD,driver
+brutit,brutit,106,B,Oskar Bengtlars,Lima MS,B-förare 2 WD,codriver
+brutit,brutit,14,A,André Nygren,MK Ratten,A-förare 2 WD,driver
+brutit,brutit,14,A,Emil Olsson,MK Ratten,A-förare 2 WD,codriver

@@ -1,0 +1,207 @@
+total_place,klass_place,number,driverklass,name,klubb,klass,driver
+1,1,5,A,David Nattsson,Falköpings MK,A-förare 4wd,driver
+1,1,5,A,Sebastian Johansson,Götene MK,A-förare 4wd,codriver
+2,2,3,A,Leif Persson,Laxå MK,A-förare 4wd,driver
+2,2,3,A,Hans Bergman,Degerfors RC,A-förare 4wd,codriver
+3,3,2,A,Mattias Lindberg,Dals MK,A-förare 4wd,driver
+3,3,2,A,Marcus Bengtsson,Dals MK,A-förare 4wd,codriver
+4,1,61,C,Kevin Eriksson,SMK Trollhättan,C -förare 2 wd,driver
+4,1,61,C,Andreas Andersson,SMK Trollhättan,C -förare 2 wd,codriver
+5,1,21,A,Kristian Johansson,Borås MK,A - förare 2 wd,driver
+5,1,21,A,Alexander Johansson,Falköpings MK,A - förare 2 wd,codriver
+6,1,29,B,Anders Johanson,Laxå MK,B - förare 4 wd,driver
+6,1,29,B,Sivert Svensson,Laxå MK,B - förare 4 wd,codriver
+7,2,27,B,Sören Svensson,MK Ran,B - förare 4 wd,driver
+7,2,27,B,Nils Nilsson,MK Ran,B - förare 4 wd,codriver
+8,1,74,C,Fredrik Rosén,MK Trophy,C-förare Appendix K,driver
+8,1,74,C,Lars Abrahamsson,Stenungsunds MS,C-förare Appendix K,codriver
+9,2,19,A,Bengt Carlsson,Vara MK,A - förare 2 wd,driver
+9,2,19,A,Tomas Johansson,Kullings MS,A - förare 2 wd,codriver
+10,3,18,A,Bo Almgren,Woxnadalens MK,A - förare 2 wd,driver
+10,3,18,A,Johan Thelin,Mälaröarnas MK,A - förare 2 wd,codriver
+11,2,68,C,Fredrik Pettersson,Falköpings MK,C -förare 2 wd,driver
+11,2,68,C,Marcus Lantz,Falköpings MK,C -förare 2 wd,codriver
+12,4,22,A,Marcus Holm,Tidaholms MK,A - förare 2 wd,driver
+12,4,22,A,Michaela Logård,Falköpings MK,A - förare 2 wd,codriver
+13,1,78,C,Rolf Karlsson,MK Ran,C-förare 4wd,driver
+13,1,78,C,Pontus H Karlsson,MK Ran,C-förare 4wd,codriver
+14,1,56,B,Kenneth Ringström,Fjugesta MS,B -förare 2 wd,driver
+14,1,56,B,Kristofer Ringström,Fjugesta MS,B -förare 2 wd,codriver
+15,2,46,B,Emil Johansson,Falköpings MK,B -förare 2 wd,driver
+15,2,46,B,Ninni Floberg,Falköpings MK,B -förare 2 wd,codriver
+16,3,53,B,Erik Stenberg,Kullings MS,B -förare 2 wd,driver
+16,3,53,B,Mikael Fagerlind,Falköpings MK,B -förare 2 wd,codriver
+17,4,58,B,Stig Christensen,Falköpings MK,B -förare 2 wd,driver
+17,4,58,B,Andreas Josefsson,Falköpings MK,B -förare 2 wd,codriver
+18,4,6,A,Bengt Thorsell,Skaraborgs Sportvagnsklubb,A-förare 4wd,driver
+18,4,6,A,Fredrik Palm,Skara MK,A-förare 4wd,codriver
+19,5,55,B,Joakim Willingskär,MK i Väst,B -förare 2 wd,driver
+19,5,55,B,Susanne Hallengren,Kullings MS,B -förare 2 wd,codriver
+20,6,52,B,Jonny Nylin,MK Ran,B -förare 2 wd,driver
+20,6,52,B,Ida Nylin,MK Ran,B -förare 2 wd,codriver
+21,7,54,B,Kjell Karlsson,SMK Karlskoga,B -förare 2 wd,driver
+21,7,54,B,Per Ola Elg,Hällefors MK,B -förare 2 wd,codriver
+22,3,28,B,Urban Andersson,Stenungsunds MS,B - förare 4 wd,driver
+22,3,28,B,Stig Andersson,Älvbygdens MK,B - förare 4 wd,codriver
+23,1,89,C,Oliver Sundström,Vara MK,C-förare VOC/Gr-N/Gr-F,driver
+23,1,89,C,Anders Sundström,Vara MK,C-förare VOC/Gr-N/Gr-F,codriver
+24,3,72,C,Morgan Larsson,Dals MK,C -förare 2 wd,driver
+24,3,72,C,Fredrik Braun,Dals MK,C -förare 2 wd,codriver
+25,2,111,C,Niklas Ridde,Laxå MK,C-förare VOC/Gr-N/Gr-F,driver
+25,2,111,C,Sara Ridde,Laxå MK,C-förare VOC/Gr-N/Gr-F,codriver
+26,1,9,A,Jörgen Sundström,Vara MK,A-Förare VOC/Gr-N/Gr-F,driver
+26,1,9,A,Mikael Granqvist,Vara MK,A-Förare VOC/Gr-N/Gr-F,codriver
+27,2,114,A,Magnus Lindqvist,Laxå MK,A-Förare VOC/Gr-N/Gr-F,driver
+27,2,114,A,Henrik Bergström,Christinehamns MK,A-Förare VOC/Gr-N/Gr-F,codriver
+28,3,91,C,Peter Lanner,Vara MK,C-förare VOC/Gr-N/Gr-F,driver
+28,3,91,C,Patrik Andersson,Vara MK,C-förare VOC/Gr-N/Gr-F,codriver
+29,8,44,B,Carl-Johan Nordgren,Dals MK,B -förare 2 wd,driver
+29,8,44,B,Casper Nordgren,Dals MK,B -förare 2 wd,codriver
+30,4,104,C,Jesper Sandgren,Falköpings MK,C-förare VOC/Gr-N/Gr-F,driver
+30,4,104,C,Urban Fröjd,Falköpings MK,C-förare VOC/Gr-N/Gr-F,codriver
+31,4,64,C,Marcus Grolander,Älvbygdens MK,C -förare 2 wd,driver
+31,4,64,C,Peter Vidal,Falköpings MK,C -förare 2 wd,codriver
+32,1,34,B,Alexander Zell,Tibro MK,B-förare VOC/Gr-N/Gr-F,driver
+32,1,34,B,Kim Telin,Skövde MK,B-förare VOC/Gr-N/Gr-F,codriver
+33,2,42,B,Willy Klarén,Kullings MS,B-förare VOC/Gr-N/Gr-F,driver
+33,2,42,B,Jimmie Lindström,Falköpings MK,B-förare VOC/Gr-N/Gr-F,codriver
+34,9,49,B,Stefan Grönberg,Dals MK,B -förare 2 wd,driver
+34,9,49,B,Ulf Örnqvist,Stenungsunds MS,B -förare 2 wd,codriver
+35,5,88,C,David Sandström,Falköpings MK,C-förare VOC/Gr-N/Gr-F,driver
+35,5,88,C,Marcus Claesson,Falköpings MK,C-förare VOC/Gr-N/Gr-F,codriver
+36,5,65,C,Harri Mourujärvi,Älvbygdens MK,C -förare 2 wd,driver
+36,5,65,C,Teuvo Majava,Älvbygdens MK,C -förare 2 wd,codriver
+37,10,51,B,Jocke Jansson,Laxå MK,B -förare 2 wd,driver
+37,10,51,B,Viktor Ringström,Falköpings MK,B -förare 2 wd,codriver
+38,6,108,C,Niklas Terner,Dals MK,C-förare VOC/Gr-N/Gr-F,driver
+38,6,108,C,Joakim Johannesson,Dals MK,C-förare VOC/Gr-N/Gr-F,codriver
+39,3,38,B,Gustaf Ekenved,Göteborgs MF,B-förare VOC/Gr-N/Gr-F,driver
+39,3,38,B,Melvin Bengtsson,Kullings MS,B-förare VOC/Gr-N/Gr-F,codriver
+40,1,85,C,Stefan Ivarsson,Tjörns MF,C - förare Grupp E,driver
+40,1,85,C,Camilla Andersson,Tjörns MF,C - förare Grupp E,codriver
+41,4,39,B,Per Erik Jonsson,SMK Trollhättan,B-förare VOC/Gr-N/Gr-F,driver
+41,4,39,B,Johanna Höglund,SMK Trollhättan,B-förare VOC/Gr-N/Gr-F,codriver
+42,11,43,B,Erik Wiklund,Älvbygdens MK,B -förare 2 wd,driver
+42,11,43,B,Marcus Marin,Älvbygdens MK,B -förare 2 wd,codriver
+43,6,60,C,Richard Jonsson,Götene MK,C -förare 2 wd,driver
+43,6,60,C,Albin Jonsson,Falköpings MK,C -förare 2 wd,codriver
+44,7,103,C,Andreas Aleryd,Vara MK,C-förare VOC/Gr-N/Gr-F,driver
+44,7,103,C,Thed Westlin,Vara MK,C-förare VOC/Gr-N/Gr-F,codriver
+45,1,31,B,Frank Jacobsson,Vara MK,B - förare Grupp E,driver
+45,1,31,B,Rasmus Broberg,Vara MK,B - förare Grupp E,codriver
+46,8,90,C,John Magnusson,Dals MK,C-förare VOC/Gr-N/Gr-F,driver
+46,8,90,C,Emma Magnusson,Dals MK,C-förare VOC/Gr-N/Gr-F,codriver
+47,5,37,B,Pär Johansson,Laxå MK,B-förare VOC/Gr-N/Gr-F,driver
+47,5,37,B,Mattias Sjöberg,Laxå MK,B-förare VOC/Gr-N/Gr-F,codriver
+48,9,106,C,Felix Nordenfors,SMK Trollhättan,C-förare VOC/Gr-N/Gr-F,driver
+48,9,106,C,Max Fredlund,SMK Trollhättan,C-förare VOC/Gr-N/Gr-F,codriver
+49,1,112,J,Linus Gustafsson Thor,Kullings MS,Ungdomsrally,driver
+49,1,112,J,Pernila Gustafsson Thor,Kullings MS,Ungdomsrally,codriver
+50,10,105,C,Emil Ivarsson,Kullings MS,C-förare VOC/Gr-N/Gr-F,driver
+50,10,105,C,Johannes Algebäck,Falköpings MK,C-förare VOC/Gr-N/Gr-F,codriver
+51,2,113,J,Ville Larsson,Kullings MS,Ungdomsrally,driver
+51,2,113,J,Ralf Larsson,Kullings MS,Ungdomsrally,codriver
+52,11,96,C,Adam Jacobson,Norrahammars MK,C-förare VOC/Gr-N/Gr-F,driver
+52,11,96,C,Timo Hihnala,Kinds MK,C-förare VOC/Gr-N/Gr-F,codriver
+53,6,41,B,Björn Kallin,Örebro RC,B-förare VOC/Gr-N/Gr-F,driver
+53,6,41,B,Mattias Jansson,Hällefors MK,B-förare VOC/Gr-N/Gr-F,codriver
+54,5,15,A,Stefan Ryberg,Forshaga MC,A - förare 2 wd,driver
+54,5,15,A,Christian Ohlsson,Forshaga MC,A - förare 2 wd,codriver
+55,2,73,C,Bernt Bengtsson,SMK Trollhättan,C-förare Appendix K,driver
+55,2,73,C,Lars Eriksson,SMK Trollhättan,C-förare Appendix K,codriver
+56,2,81,C,Vincent Lidre Andersson,Vänersborgs MK,C - förare Grupp E,driver
+56,2,81,C,Mikael Andersson,Vänersborgs MK,C - förare Grupp E,codriver
+57,12,98,C,Johan Mäsak,Orust BSK,C-förare VOC/Gr-N/Gr-F,driver
+57,12,98,C,Anton Jonsson,Falköpings MK,C-förare VOC/Gr-N/Gr-F,codriver
+58,12,57,B,Peter Fager,Kinds MK,B -förare 2 wd,driver
+58,12,57,B,Johannes Liedberg,Kinds MK,B -förare 2 wd,codriver
+59,13,94,C,Mattias Ekberg,SMK Trollhättan,C-förare VOC/Gr-N/Gr-F,driver
+59,13,94,C,Jan Ekberg,SMK Trollhättan,C-förare VOC/Gr-N/Gr-F,codriver
+60,7,40,B,Olle Henriksson,Filipstads MC,B-förare VOC/Gr-N/Gr-F,driver
+60,7,40,B,Thomas Larsson,Storfors MK,B-förare VOC/Gr-N/Gr-F,codriver
+61,14,97,C,Stefan Andersson,Dals MK,C-förare VOC/Gr-N/Gr-F,driver
+61,14,97,C,Göran Thell,Dals MK,C-förare VOC/Gr-N/Gr-F,codriver
+62,15,109,C,Christer Brunnegård,Kullings MS,C-förare VOC/Gr-N/Gr-F,driver
+62,15,109,C,Isabella Brunnegård,Kullings MS,C-förare VOC/Gr-N/Gr-F,codriver
+63,3,79,C,Jonas Kolbert,Götene MK,C - förare Grupp E,driver
+63,3,79,C,Oskar Jansson,Vara MK,C - förare Grupp E,codriver
+64,1,26,B,Jan Edlund,Tidaholms MK,B-förare Appendix K,driver
+64,1,26,B,Christina Thorén,Tidaholms MK,B-förare Appendix K,codriver
+65,16,95,C,Linda Jonsson,SMK Karlskoga,C-förare VOC/Gr-N/Gr-F,driver
+65,16,95,C,Jenny Axelsson,SMK Karlskoga,C-förare VOC/Gr-N/Gr-F,codriver
+66,1,1,A,Lennarth Eriksson,Sotenäs MK,A-förare Appendix K,driver
+66,1,1,A,Tomas Sjöberg,Sotenäs MK,A-förare Appendix K,codriver
+67,3,14,A,Anders Olsson,Vänersborgs MK,A-Förare VOC/Gr-N/Gr-F,driver
+67,3,14,A,Sven Olsson,Vänersborgs MK,A-Förare VOC/Gr-N/Gr-F,codriver
+68,2,33,B,Dan Brewitz,Tibro MK,B - förare Grupp E,driver
+68,2,33,B,Dennis Imgård,Carlsborgs MK,B - förare Grupp E,codriver
+69,7,71,C,Mikael Johansson,Fjärås MK,C -förare 2 wd,driver
+69,7,71,C,Fredrik Gustavsson,Kullings MS,C -förare 2 wd,codriver
+70,1,7,A,Gunnar Larsson,Kullings MS,A - förare Grupp E,driver
+70,1,7,A,Kurt Wilsson,Kullings MS,A - förare Grupp E,codriver
+71,17,87,C,Rickard Strand,Volvo MK,C-förare VOC/Gr-N/Gr-F,driver
+71,17,87,C,Tommy Andersson,Volvo MK,C-förare VOC/Gr-N/Gr-F,codriver
+72,4,13,A,Jan Wigertson,Kullings MS,A-Förare VOC/Gr-N/Gr-F,driver
+72,4,13,A,Viktor Edling,Kullings MS,A-Förare VOC/Gr-N/Gr-F,codriver
+73,3,32,B,Mattias Jonsson,Kullings MS,B - förare Grupp E,driver
+73,3,32,B,Marika Carlsson,SSJ,B - förare Grupp E,codriver
+74,2,24,B,Markus Johnzon,Varbergs MK,B-förare Appendix K,driver
+74,2,24,B,Ingemar Johnzon,Varbergs MK,B-förare Appendix K,codriver
+75,3,75,C,Christer Johansson,Kullings MS,C-förare Appendix K,driver
+75,3,75,C,Magnus Hedström,Kullings MS,C-förare Appendix K,codriver
+76,18,92,C,Börje Johansson,Kullings MS,C-förare VOC/Gr-N/Gr-F,driver
+76,18,92,C,Ingrid Johansson,Kullings MS,C-förare VOC/Gr-N/Gr-F,codriver
+77,19,102,C,Peter Müller,Kullings MS,C-förare VOC/Gr-N/Gr-F,driver
+77,19,102,C,Malin Larsson,MK i Väst,C-förare VOC/Gr-N/Gr-F,codriver
+78,8,36,B,Peter Axelsson,SMK Karlskoga,B-förare VOC/Gr-N/Gr-F,driver
+78,8,36,B,Jörgen Nilsson,SMK Karlskoga,B-förare VOC/Gr-N/Gr-F,codriver
+79,4,80,C,Albin Karlsson,Dals MK,C - förare Grupp E,driver
+79,4,80,C,Andreas Aronsson,Dals MK,C - förare Grupp E,codriver
+80,2,8,A,Tomas Östermyr,Kullings MS,A - förare Grupp E,driver
+80,2,8,A,Irma Östermyr,Kullings MS,A - förare Grupp E,codriver
+81,5,83,C,Viktor Fodérus,SMK Örebro,C - förare Grupp E,driver
+81,5,83,C,Lennart Göransson,SMK Örebro,C - förare Grupp E,codriver
+82,6,84,C,Stefan Fransson,Laxå MK,C - förare Grupp E,driver
+82,6,84,C,Lowa Felldin,Laxå MK,C - förare Grupp E,codriver
+83,3,25,B,Daniel Levinsson,Tidaholms MK,B-förare Appendix K,driver
+83,3,25,B,Philip Levinsson,Tidaholms MK,B-förare Appendix K,codriver
+84,5,11,A,Göran Wigertson,Kullings MS,A-Förare VOC/Gr-N/Gr-F,driver
+84,5,11,A,Carola Roos Johansson,Kullings MS,A-Förare VOC/Gr-N/Gr-F,codriver
+85,8,67,C,Henrik Höglund,SMK Trollhättan,C -förare 2 wd,driver
+85,8,67,C,Erling Jonsson,SMK Trollhättan,C -förare 2 wd,codriver
+86,20,93,C,Catalina Floberg,Falköpings MK,C-förare VOC/Gr-N/Gr-F,driver
+86,20,93,C,Johanna Hallqvist,Vara MK,C-förare VOC/Gr-N/Gr-F,codriver
+87,13,50,B,Jim Johansson,Falköpings MK,B -förare 2 wd,driver
+87,13,50,B,Jessica Arvidsson,Falköpings MK,B -förare 2 wd,codriver
+88,7,82,C,Lennart Rees,Laxå MK,C - förare Grupp E,driver
+88,7,82,C,P-O Einerfeldt,Laxå MK,C - förare Grupp E,codriver
+89,9,66,C,Alexander Svensson,Älmhults MK,C -förare 2 wd,driver
+89,9,66,C,Linus Garpevik,Nässjö MK,C -förare 2 wd,codriver
+90,10,59,C,Anton Sundström,Vara MK,C -förare 2 wd,driver
+90,10,59,C,Nils Wedin,Falköpings MK,C -förare 2 wd,codriver
+brutit,brutit,77,C,Hannah Jakobsson,Kolsva MS,C-förare 4wd,driver
+brutit,brutit,77,C,Christer Carlsson,Katrineholms MK,C-förare 4wd,codriver
+brutit,brutit,23,A,Mikael Ekman,Oskarshamns RRC,A - förare 2 wd,driver
+brutit,brutit,23,A,Kenneth Ekman,Oskarshamns RRC,A - förare 2 wd,codriver
+brutit,brutit,62,C,Marcus Hellberg,Laxå MK,C -förare 2 wd,driver
+brutit,brutit,62,C,Martin Sundin,Laxå MK,C -förare 2 wd,codriver
+brutit,brutit,116,A,Andreas Thelaus,Karlstads MC Bil,A - förare 2 wd,driver
+brutit,brutit,116,A,Theo Bergsten,Forshaga MC,A - förare 2 wd,codriver
+brutit,brutit,35,B,Jimmy Karlsson,Hagfors MK,B-förare VOC/Gr-N/Gr-F,driver
+brutit,brutit,35,B,Mattias Sandberg,Hagfors MK,B-förare VOC/Gr-N/Gr-F,codriver
+brutit,brutit,4,A,Philip Ahlstrand,Götene MK,A-förare 4wd,driver
+brutit,brutit,4,A,Eilert Ahlstrand,Götene MK,A-förare 4wd,codriver
+brutit,brutit,70,C,Nathalie Holm,Karlstads MC Bil,C -förare 2 wd,driver
+brutit,brutit,70,C,Denise Ericsson,Falköpings MK,C -förare 2 wd,codriver
+brutit,brutit,69,C,Mikael Granat,Vara MK,C -förare 2 wd,driver
+brutit,brutit,69,C,Filip Bengtsson,Vara MK,C -förare 2 wd,codriver
+brutit,brutit,76,C,Denise Jarnebrink,Sportvagnsklubben Göteborg,C-förare Appendix K,driver
+brutit,brutit,76,C,Kalle Pilkrantz,Sportvagnsklubben Göteborg,C-förare Appendix K,codriver
+brutit,brutit,48,B,Johan Brorson,Dals MK,B -förare 2 wd,driver
+brutit,brutit,48,B,Joakim Tollesson,Dals MK,B -förare 2 wd,codriver
+brutit,brutit,12,A,Ronny Johansson,Vara MK,A-Förare VOC/Gr-N/Gr-F,driver
+brutit,brutit,12,A,Alferd Lundberg,Falköpings MK,A-Förare VOC/Gr-N/Gr-F,codriver
+brutit,brutit,100,C,Jonas Andersson,Orust BSK,C-förare VOC/Gr-N/Gr-F,driver
+brutit,brutit,100,C,Jessica Andersson,Orust BSK,C-förare VOC/Gr-N/Gr-F,codriver
+brutit,brutit,101,C,Simon Arvidsson,Falköpings MK,C-förare VOC/Gr-N/Gr-F,driver
+brutit,brutit,101,C,Nathalie Arvidsson,Falköpings MK,C-förare VOC/Gr-N/Gr-F,codriver
