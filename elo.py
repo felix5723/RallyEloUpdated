@@ -9,12 +9,13 @@ VALUETOWARDSTOTAL = 0.75  # Antal lutning mot totalen i decimal form
 
 
 def main():
-    path = "Tävlingar/"
+    path = "raceconsult/"
     # grab rally from folder
     rallys = find_csv_filenames(path)
 
     # gå igenom varje rally
     for rally in rallys:
+        print(rally)
         with open(path + rally, newline='', encoding="utf-8") as csvfile:
             date = rally.split(" ")[0]
             rallyName = rally.split(" ")[1].split(".")[0] + " " + date
@@ -41,7 +42,6 @@ def eloMaker(rally, date, rallyName):
 
     if len(rally) > 0:
         for people in rally:
-            print(people)
             elo = eloChecker(people["name"], people["driver"])
 
             # Add up all elo total
@@ -111,7 +111,6 @@ def eloCalculator(total, people, competition, placement, probabilitys):
 
 
 def eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys):
-    print(people, totalElo, klassElo)
     driverElo = eloChecker(people["name"], people["driver"])
     types = ["total", "kombi", "klass"]
     eloGather = {}
@@ -125,11 +124,8 @@ def eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys):
             addElo = klassElo
         elo[people["driver"]][people["name"]][type] += addElo
         eloGather[type] = elo[people["driver"]][people["name"]][type]
-    print(elo[people["driver"]][people["name"]]["history"])
     elo[people["driver"]][people["name"]]["history"][date] = {
         "Rally name": rallyName, "total placement": people["total_place"], "total placement of": people["total placement of"], "klass placement": people["klass_place"], "klass placement of": people["klass placement of"], "klass": people["klass"], "elo after rally": eloGather, "probabilitys": probabilitys}
-    print(elo[people["driver"]][people["name"]]["history"])
-    print("")
     return elo, probabilitys
 
 

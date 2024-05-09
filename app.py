@@ -7,6 +7,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+
+    searchName = "felix holmsten"
+    position = "driver"  # driver or codriver
+
     with open('elo.json', encoding='utf-8') as fh:
         data = json.load(fh)
 
@@ -15,17 +19,19 @@ def index():
 
     print(type(data))
     # print(data)
-    for name in data["driver"]:
-        if name.lower() == "Hugo Sääf".lower():
-            print(data["driver"][name])
-            for rally in data["driver"][name]["history"]:
-                print(data["driver"][name]["history"][rally])
-                elo.append((data["driver"][name]["history"]
-                           [rally]["elo after rally"]["total"], data["driver"][name]["history"]
-                           [rally]["elo after rally"]["kombi"], data["driver"][name]["history"]
+    for name in data[position]:
+        if name.lower() == searchName.lower():
+            print(data[position][name])
+            for rally in data[position][name]["history"]:
+                print("---")
+                print(data[position][name]["history"][rally])
+                print("---")
+                elo.append((data[position][name]["history"]
+                           [rally]["elo after rally"]["total"], data[position][name]["history"]
+                           [rally]["elo after rally"]["kombi"], data[position][name]["history"]
                            [rally]["elo after rally"]["klass"]))
-                rallyName.append(data["driver"][name]["history"][rally]["Rally name"] +
-                                 " " + data["driver"][name]["history"][rally]["klass"])
+                rallyName.append(data[position][name]["history"][rally]["Rally name"] +
+                                 " " + data[position][name]["history"][rally]["klass"])
             continue
 
     print(elo)

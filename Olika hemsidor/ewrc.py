@@ -9,6 +9,7 @@ OVERHEADURL = "https://www.ewrc-results.com"
 NATIONSURL = "/events/?nat=16"
 STATSDICT = {}
 RALLYDICT = []
+YEAR = 2015
 
 
 def main():
@@ -37,43 +38,56 @@ def carGrabber(rallyURL, rallyhref, rallyName):
     soup = loadURL(rallyURL)
     bruten = False
     klassPlacement = {}
+    year = 0
 
     # Date
     for a in soup.find_all('a', href=True):
         if a['href'] == rallyhref:
             date = a.parent.text.strip().split("•")[0].split(",")[0].split(".")
-            date = date[2].strip() + "-" + date[1].strip() + \
-                "-" + date[0].strip()
+            if len(date) == 3:
+                year = date[2].strip()
+                month = date[1].strip()
+                day = date[0].strip()
+            else:
+                year = date[4].strip()
+                month = date[3].strip()
+                day = date[2].split("–")[-1].strip()
+
+            date = year.strip() + "-" + month.strip() + "-" + day.strip()
+            year = int(year)
             fileName = date + " " + rallyName + ".csv"
             break
 
-    path = "Tävlingar/"
-    # grab rally from folder
-    alreadyMade = find_csv_filenames(path)
-    if fileName not in alreadyMade:
-        RALLYDICT.append(fileName)
-        with open("Tävlingar/" + fileName, 'w', newline='', encoding="utf-8") as file:
-            writer = csv.writer(file)
-            header = ["total_place", "klass_place",
-                      "number", "driverklass", "unique code", "name", "klass",  "driver"]
+    if year >= YEAR:
+        path = "Tävlingar/"
+        # grab rally from folder
+        alreadyMade = find_csv_filenames(path)
+        if fileName not in alreadyMade:
+            RALLYDICT.append(fileName)
+            with open("Tävlingar/" + fileName, 'w', newline='', encoding="utf-8") as file:
+                writer = csv.writer(file)
+                header = ["total_place", "klass_place",
+                          "number", "driverklass", "unique code", "name", "klass",  "driver"]
 
-            writer.writerow(header)
+                writer.writerow(header)
 
-        cars = soup.find_all('table')
-        if cars:
-            cars = cars[0].find_all('tr')
-            if len(cars) > 1:
-                for car in cars:
-                    if "retirements" not in car.text.lower():
-                        data = {}
-                        car = car.find_all('td')
-                        peopleURL = car[3].find('a')['href']
+            cars = soup.find_all('table')
+            if cars:
+                cars = cars[0].find_all('tr')
+                if len(cars) > 1:
+                    for car in cars:
+                        if "retirements" not in car.text.lower() and "not in overall results, but not retired" not in car.text.strip().lower():
+                            data = {}
+                            car = car.find_all('td')
+                            peopleURL = car[3].find('a')['href']
 
-                        peopleGrabber(peopleURL, data, fileName,
-                                      bruten, klassPlacement)
-                    else:
-                        bruten = True
-                bruten = False
+                            peopleGrabber(peopleURL, data, fileName,
+                                          bruten, klassPlacement)
+                        elif "not in overall results, but not retired" in car.text.strip().lower():
+                            break
+                        else:
+                            bruten = True
+                    bruten = False
 
 
 def peopleGrabber(peopleURL, data, fileName, bruten, klassPlacement):
@@ -114,7 +128,10 @@ def peopleGrabber(peopleURL, data, fileName, bruten, klassPlacement):
 
     if codriver != "ingen":
         data["name"] = codriver[0].text.strip().split(" ")
-        data["name"] = data["name"][1] + " " + data["name"][0]
+        if len(data["name"]) == 2:
+            data["name"] = data["name"][1] + " " + data["name"][0]
+        else:
+            data["name"] = data["name"][0]
         data["driver"] = "codriver"
         data["unique code"] = codriver[0]['href'].strip().split(
             "-")[0].split("/")[-1]
@@ -162,9 +179,10 @@ try:
 # except Exception as error:
 #    print(error)
 except KeyboardInterrupt:
-    removed = RALLYDICT.pop()
-    path_to_dir = "Tävlingar/"
-    file_path = path_to_dir + removed
-    if os.path.exists(file_path):
-        os.remove(file_path)
-    print("Removed: " + file_path)
+    if len(RALLYDICT) > 0:
+        removed = RALLYDICT.pop()
+        path_to_dir = "Tävlingar/"
+        file_path = path_to_dir + removed
+        if os.path.exists(file_path):
+            os.remove(file_path)
+        print("Removed: " + file_path)
