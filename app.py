@@ -16,7 +16,7 @@ def index():
     print(type(data))
     # print(data)
     for name in data["driver"]:
-        if name.lower() == "Felix holmsten".lower():
+        if name.lower() == "Hugo Sääf".lower():
             print(data["driver"][name])
             for rally in data["driver"][name]["history"]:
                 print(data["driver"][name]["history"][rally])
@@ -24,8 +24,8 @@ def index():
                            [rally]["elo after rally"]["total"], data["driver"][name]["history"]
                            [rally]["elo after rally"]["kombi"], data["driver"][name]["history"]
                            [rally]["elo after rally"]["klass"]))
-                rallyName.append(data["driver"][name]
-                                 ["history"][rally]["Rally name"])
+                rallyName.append(data["driver"][name]["history"][rally]["Rally name"] +
+                                 " " + data["driver"][name]["history"][rally]["klass"])
             continue
 
     print(elo)

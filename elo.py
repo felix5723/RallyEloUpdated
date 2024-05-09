@@ -17,7 +17,7 @@ def main():
     for rally in rallys:
         with open(path + rally, newline='', encoding="utf-8") as csvfile:
             date = rally.split(" ")[0]
-            rallyName = rally.split(" ")[1].split(".")[0]
+            rallyName = rally.split(" ")[1].split(".")[0] + " " + date
             rally = csv.DictReader(csvfile)
             eloMaker(rally, date, rallyName)
     with open("elo.json", "w", encoding="utf-8") as f:
@@ -39,36 +39,37 @@ def eloMaker(rally, date, rallyName):
         csv_data.append(row)
     rally = csv_data
 
-    for people in rally:
-        print(people)
-        elo = eloChecker(people["name"], people["driver"])
+    if len(rally) > 0:
+        for people in rally:
+            print(people)
+            elo = eloChecker(people["name"], people["driver"])
 
-        # Add up all elo total
-        eloHolderTotal[people["driver"]]["elo"] += elo["total"]
-        eloHolderTotal[people["driver"]]["People count"] += 1
+            # Add up all elo total
+            eloHolderTotal[people["driver"]]["elo"] += elo["total"]
+            eloHolderTotal[people["driver"]]["People count"] += 1
 
-        # Add up all elo klass
-        if people["klass"] not in eloHolderKlass:
-            eloHolderKlass[people["klass"]] = {}
-        if people["driver"] not in eloHolderKlass[people["klass"]]:
-            eloHolderKlass[people["klass"]][people["driver"]] = {
-                "elo": 0, "People count": 0}
-        eloHolderKlass[people["klass"]
-                       ][people["driver"]]["elo"] += elo["klass"]
-        eloHolderKlass[people["klass"]
-                       ][people["driver"]]["People count"] += 1
+            # Add up all elo klass
+            if people["klass"] not in eloHolderKlass:
+                eloHolderKlass[people["klass"]] = {}
+            if people["driver"] not in eloHolderKlass[people["klass"]]:
+                eloHolderKlass[people["klass"]][people["driver"]] = {
+                    "elo": 0, "People count": 0}
+            eloHolderKlass[people["klass"]
+                           ][people["driver"]]["elo"] += elo["klass"]
+            eloHolderKlass[people["klass"]
+                           ][people["driver"]]["People count"] += 1
 
-    for people in rally:
-        probabilitys = {}
-        # Total
-        totalElo, probabilitys = eloCalculator("total", people, eloHolderTotal,
-                                               people["total_place"], probabilitys)
+        for people in rally:
+            probabilitys = {}
+            # Total
+            totalElo, probabilitys = eloCalculator("total", people, eloHolderTotal,
+                                                   people["total_place"], probabilitys)
 
-        # Klass
-        klassElo, probabilitys = eloCalculator("klass", people, eloHolderKlass,
-                                               people["klass_place"], probabilitys)
+            # Klass
+            klassElo, probabilitys = eloCalculator("klass", people, eloHolderKlass,
+                                                   people["klass_place"], probabilitys)
 
-        eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys)
+            eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys)
 
 
 def eloChecker(name, driver):
@@ -126,7 +127,7 @@ def eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys):
         eloGather[type] = elo[people["driver"]][people["name"]][type]
     print(elo[people["driver"]][people["name"]]["history"])
     elo[people["driver"]][people["name"]]["history"][date] = {
-        "Rally name": rallyName, "total placement": people["total_place"], "total placement of": people["total placement of"], "klass placement": people["klass_place"], "klass placement of": people["klass placement of"], "elo after rally": eloGather, "probabilitys": probabilitys}
+        "Rally name": rallyName, "total placement": people["total_place"], "total placement of": people["total placement of"], "klass placement": people["klass_place"], "klass placement of": people["klass placement of"], "klass": people["klass"], "elo after rally": eloGather, "probabilitys": probabilitys}
     print(elo[people["driver"]][people["name"]]["history"])
     print("")
     return elo, probabilitys

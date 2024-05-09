@@ -1,1 +1,1 @@
-total_place,klass_place,number,driverklass,name,klubb,klass,driver
+total_place,klass_place,number,driverklass,unique code,name,klass,driver
