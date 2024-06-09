@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
-    searchName = "felix holmsten"
+    searchName = "tim liljegren"
     position = "driver"  # driver or codriver
 
     with open('elo.json', encoding='utf-8') as fh:

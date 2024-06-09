@@ -21,11 +21,13 @@ def main():
         rallyName = " ".join(rallyInfo[1].text.split())
         rallyName = rallyName.replace(":", "-").replace("/", "-")
         rallyDate = " ".join(rallyInfo[0].text.split())
+        print(rallyName)
+        print(rallyDate)
 
         with open("raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
             writer = csv.writer(file)
             header = ["total_place", "klass_place",
-                      "number", "driverklass", "name", "klubb", "klass",  "driver"]
+                      "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
 
             writer.writerow(header)
 
@@ -43,6 +45,7 @@ def main():
             data["number"] = info[0].find_all('td')[1].text
             data["klass"] = info[0].find_all('td')[6].text
             data["driverklass"] = info[0].find_all('td')[2].text
+            data["time"] = info[1].find_all('td')[-2].text
 
             # Driver
             data["name"] = info[0].find_all('td')[4].text
@@ -83,10 +86,11 @@ def construct_data(data, writer, rallyName, rallyDate):
         data["total_place"] = "brutit"
         data["klass_place"] = "brutit"
 
-    with open("raceconsult/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
-        writer = csv.writer(file)
-        writer.writerow([data["total_place"], data["klass_place"], data["number"],
-                         data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"]])
+    if data["name"]:
+        with open("raceconsult/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
+            writer = csv.writer(file)
+            writer.writerow([data["total_place"], data["klass_place"], data["number"],
+                            data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"], data["time"]])
 
 
 main()
