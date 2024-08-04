@@ -15,6 +15,8 @@ def main():
 
     # gå igenom varje rally
     for rally in rallys:
+        if rally == '2023-08-18 EC SNAPPHANERALLYT.csv':
+            print("yesss")
         print(rally)
         with open(path + rally, newline='', encoding="utf-8") as csvfile:
             date = rally.split(" ")[0]
@@ -34,7 +36,11 @@ def eloMaker(rally, date, rallyName):
     eloHolderTotal = {"driver": {"elo": 0, "People count": 0},
                       "codriver": {"elo": 0, "People count": 0}}
     eloHolderKlass = {}
+
+    eloHolderWeighted = {"driver": {"elo": 0, "People count": 0},
+                         "codriver": {"elo": 0, "People count": 0}}
     eloHolderViktad = {"A": {}, "B": {}, "C": {}}
+    # "J": {}, "DB": {}, "L": {}, "R": {}, "FA": {}, "FC": {}, "FB": {}}
 
     csv_data = []
     for row in rally:
@@ -60,6 +66,9 @@ def eloMaker(rally, date, rallyName):
             eloHolderKlass[people["klass"]
                            ][people["driver"]]["People count"] += 1
 
+            eloHolderWeighted[people["driver"]]["elo"] += elo["total"]
+            eloHolderWeighted[people["driver"]]["People count"] += 1
+
             # Viktad Elo
             if people["total_place"].lower() != "brutit":
                 if people and people["driver"] == "driver":
@@ -71,28 +80,38 @@ def eloMaker(rally, date, rallyName):
                     klass = people["klass"]
                     if klass == "Grupp E":
                         print(klass)
+                    if people["number"] == '43' and people["name"] == 'Tim Liljegren':
+                        print("Tim!")
                     driverKlass = people["driverklass"]
 
                     hold = 0
                     time = people["time"]
+                    time = time.replace(
+                        "(", "").replace(")", "").replace("?", "")
                     time = time.split(",")
                     if len(time) == 2:
                         hold += int(time[1]) / 10 / 3600
                     time = time[0].split(":")
-                    if len(time) == 3:
-                        hold += int(time[0])
-                    hold += int(time[-2]) / 60
-                    hold += int(time[-1]) / 3600
+                    if len(time) > 1:
+                        if len(time) == 3:
+                            hold += int(time[0])
+                        hold += int(time[-2]) / 60  # Minuter
+                        hold += int(time[-1]) / 3600  # Sekunder
+                    else:
+                        time = time[0]
+                        hold += int(time[-1]) / 3600  # Sekunder
                     time = hold
+
+                    if people["driverklass"] not in eloHolderViktad:
+                        eloHolderViktad[people["driverklass"]] = {}
 
                     if people["klass_place"] == "1" or people["klass"] not in eloHolderViktad[driverKlass]:
                         if len(eloHolderViktad[driverKlass]) > 0:
-                            weight = next(
+                            weightTime = next(
                                 iter(eloHolderViktad[driverKlass].items()))[-1]["newTime"]
-                            weight = weight / time
+                            weight = weightTime / time
                         else:
                             weight = 1
-
                         if klass not in eloHolderViktad[driverKlass]:
                             eloHolderViktad[driverKlass][klass] = {
                                 "orgTime": people["time"], "newTime": time, "weight": weight}
@@ -104,14 +123,19 @@ def eloMaker(rally, date, rallyName):
                 people["time"] = time
                 people["weightedTime"] = eloHolderViktad[people["driverklass"]
                                                          ][people["klass"]]["weight"] * time
-                print("test")
             else:
+                people["time"] = 999
+                people["weightedTime"] = 999
                 continue
 
-        newlist = sorted(eloHolderViktad, key=lambda d: d['weightedTime'])
+        weightedList = sorted(rally, key=lambda d: d['weightedTime'])
 
+        totalElo = 0
+        klassElo = 0
+        viktadElo = 0
         hold = {}
         for people in rally:
+
             probabilitys = {}
             # Total
             totalElo, probabilitys = eloCalculator("total", people, eloHolderTotal,
@@ -121,6 +145,27 @@ def eloMaker(rally, date, rallyName):
             klassElo, probabilitys = eloCalculator("klass", people, eloHolderKlass,
                                                    people["klass_place"], probabilitys)
 
+            # Weighted
+            weightPlace = 0
+            for weightedPeople in weightedList:
+                if people["driver"] == weightedPeople["driver"]:
+                    weightPlace += 1
+                if people["name"] == weightedPeople["name"] and people["number"] == weightedPeople["number"]:
+                    viktadElo, probabilitys = eloCalculator("weighted", people, eloHolderWeighted,
+                                                            weightPlace, probabilitys)
+                    break
+
+            eloSaver(people, totalElo, klassElo, viktadElo,
+                     date, rallyName, probabilitys)
+
+        # for people in weightedList:
+        #    # Weighted
+        #    viktadElo, probabilitys = eloCalculator("weighted", people, eloHolderWeighted,
+        #                                            people["klass_place"], probabilitys)#
+
+        #    eloSaver("weighted", people, totalElo, klassElo, viktadElo,
+        #             date, rallyName, probabilitys)
+
             # if len(hold) == 0:
             #    for x in range(0, len(hold)):
             #        if people["weightedTime"] < hold[x]["weightedTime"]:
@@ -128,13 +173,11 @@ def eloMaker(rally, date, rallyName):
             # else:
             #    hold += people
 
-        eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys)
-
 
 def eloChecker(name, driver):
     if name not in elo[driver]:
         elo[driver][name] = {"total": STARTINGELO,
-                             "kombi": STARTINGELO, "klass": STARTINGELO, "history": {}}
+                             "kombi": STARTINGELO, "klass": STARTINGELO, "weighted": STARTINGELO, "history": {}}
     return elo[driver][name]
 
 
@@ -144,11 +187,15 @@ def eloCalculator(total, people, competition, placement, probabilitys):
         againstElo = competition[people["driver"]]["elo"]
         againstAmount = competition[people["driver"]]["People count"]
         people["total placement of"] = againstAmount
-    else:
+    elif total == "klass":
         againstElo = competition[people["klass"]][people["driver"]]["elo"]
         againstAmount = competition[people["klass"]
                                     ][people["driver"]]["People count"]
         people["klass placement of"] = againstAmount
+    else:
+        againstElo = competition[people["driver"]]["elo"]
+        againstAmount = competition[people["driver"]]["People count"]
+        people["total placement of"] = againstAmount - 1
     if placement == "brutit":
         placement = againstAmount
     elo = 0
@@ -166,12 +213,14 @@ def eloCalculator(total, people, competition, placement, probabilitys):
         elo = K_VALUE*(outcome-probOutcome)
 
         probabilitys[total] = {"Outcome": outcome, "Probabilty": probOutcome}
+    else:
+        elo = 0
     return elo, probabilitys
 
 
-def eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys):
+def eloSaver(people, totalElo, klassElo, viktadElo, date, rallyName, probabilitys):
     driverElo = eloChecker(people["name"], people["driver"])
-    types = ["total", "kombi", "klass"]
+    types = ["total", "kombi", "klass", "weighted"]
     eloGather = {}
     for type in types:
         if type == "total":
@@ -181,6 +230,8 @@ def eloSaver(people, totalElo, klassElo, date, rallyName, probabilitys):
                 klassElo * (1 - VALUETOWARDSTOTAL)
         elif type == "klass":
             addElo = klassElo
+        elif type == "weighted":
+            addElo = viktadElo
         elo[people["driver"]][people["name"]][type] += addElo
         eloGather[type] = elo[people["driver"]][people["name"]][type]
     elo[people["driver"]][people["name"]]["history"][date] = {

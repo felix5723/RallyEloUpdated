@@ -8,13 +8,13 @@ app = Flask(__name__)
 @app.route('/')
 def index():
 
-    searchName = "tim liljegren"
+    searchName = "Peter Lanner"
     position = "driver"  # driver or codriver
 
     with open('elo.json', encoding='utf-8') as fh:
         data = json.load(fh)
 
-    elo = [(800, 800, 800)]
+    elo = [(800, 800, 800, 800)]
     rallyName = ["Start"]
 
     print(type(data))
@@ -29,9 +29,12 @@ def index():
                 elo.append((data[position][name]["history"]
                            [rally]["elo after rally"]["total"], data[position][name]["history"]
                            [rally]["elo after rally"]["kombi"], data[position][name]["history"]
-                           [rally]["elo after rally"]["klass"]))
+                           [rally]["elo after rally"]["klass"], data[position][name]["history"]
+                           [rally]["elo after rally"]["weighted"]))
                 rallyName.append(data[position][name]["history"][rally]["Rally name"] +
                                  " " + data[position][name]["history"][rally]["klass"])
+                print(data[position][name]["history"]
+                      [rally]["elo after rally"])
             continue
 
     print(elo)
@@ -40,14 +43,16 @@ def index():
     eloTotal = [row[0] for row in elo]
     eloKombi = [row[1] for row in elo]
     eloKlass = [row[2] for row in elo]
+    eloWeighted = [row[3] for row in elo]
     labels = rallyName
     print("----------")
     print(eloTotal)
     print(eloKombi)
     print(eloKlass)
+    print(eloWeighted)
     print(labels)
 
-    return render_template('index.html', eloTotal=eloTotal, eloKombi=eloKombi, eloKlass=eloKlass, labels=labels)
+    return render_template('index.html', eloTotal=eloTotal, eloKombi=eloKombi, eloKlass=eloKlass, eloWeighted=eloWeighted, labels=labels)
 
 
 if __name__ == "__main__":

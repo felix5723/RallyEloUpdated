@@ -62,8 +62,10 @@ def main():
 
 def grabRallys():
     urls = []
+    banned = ["221", "222", "392", "812",
+              "1026", "1061", "1084", "1097", "1424"]
 
-    for year in range(2004, 2025, 1):
+    for year in range(2025, 2004, -1):
         url = "https://www.raceconsulting.com/rally/resultat/index.jsp?year=" + \
             str(year)
         page = requests.get(url)
@@ -76,8 +78,12 @@ def grabRallys():
             rallysInYear[x] = rallysInYear[x].find_all('td')
             if rallysInYear[x]:
                 number = rallysInYear[x][0].find('a')['href'].split("=")[-1]
-                totalurl = totalurl + number
-                urls.append(totalurl)
+                if number not in banned:
+                    totalurl = totalurl + number
+                    urls.append(totalurl)
+                else:
+                    print("BANNED")
+                    print(number)
     return urls
 
 
