@@ -24,7 +24,7 @@ def main():
         print(rallyName)
         print(rallyDate)
 
-        with open("raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
+        with open("Tävlingar/Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
             writer = csv.writer(file)
             header = ["total_place", "klass_place",
                       "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
@@ -93,7 +93,7 @@ def construct_data(data, writer, rallyName, rallyDate):
         data["klass_place"] = "brutit"
 
     if data["name"]:
-        with open("raceconsult/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
+        with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
             writer = csv.writer(file)
             writer.writerow([data["total_place"], data["klass_place"], data["number"],
                             data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"], data["time"]])

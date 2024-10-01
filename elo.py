@@ -1,6 +1,8 @@
 from os import listdir
 import csv
 import json
+import os
+import glob
 
 elo = {"driver": {}, "codriver": {}}
 STARTINGELO = 800
@@ -8,17 +10,36 @@ K_VALUE = 32
 VALUETOWARDSTOTAL = 0.75  # Antal lutning mot totalen i decimal form
 
 
+def find_csv_files(folder_path):
+    # Using glob to find all .csv files in the folder and subfolders
+    return glob.glob(os.path.join(folder_path, '**', '*.csv'), recursive=True)
+
+
 def main():
-    path = "raceconsult/"
+    # Specify the two folder paths
+    folder_path_1 = 'Tävlingar/raceconsult'  # Replace with your first folder path
+    folder_path_2 = 'Tävlingar/reallyrally'  # Replace with your second folder path
+
+    # Find CSV files in both folders
+    csv_files_1 = find_csv_files(folder_path_1)
+    csv_files_2 = find_csv_files(folder_path_2)
+
+    # Combine the paths from both folders
+    combined_csv_files = csv_files_1 + csv_files_2
+
+    # Sort the combined list of paths
+    sorted_csv_files = sorted(
+        combined_csv_files, key=lambda x: os.path.basename(x))
     # grab rally from folder
-    rallys = find_csv_filenames(path)
+    # rallys = find_csv_filenames(sorted_csv_files)
 
     # gå igenom varje rally
-    for rally in rallys:
+    for path in sorted_csv_files:
+        rally = path.split("\\")[-1]
         if rally == '2023-08-18 EC SNAPPHANERALLYT.csv':
             print("yesss")
         print(rally)
-        with open(path + rally, newline='', encoding="utf-8") as csvfile:
+        with open(path, newline='', encoding="utf-8") as csvfile:
             date = rally.split(" ")[0]
             rallyName = rally.split(" ")[1].split(".")[0] + " " + date
             rally = csv.DictReader(csvfile)
