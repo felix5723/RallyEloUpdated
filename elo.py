@@ -39,8 +39,6 @@ def main():
     # gå igenom varje rally
     for path in sorted_csv_files:
         rally = path.split("\\")[-1]
-        if rally == '2023-08-18 EC SNAPPHANERALLYT.csv':
-            print("yesss")
         print(rally)
         with open(path, newline='', encoding="utf-8") as csvfile:
             date = rally.split(" ")[0]
