@@ -116,7 +116,7 @@ def eloMaker(rally, date, rallyName):
                     time = time[0].split(":")
                     if len(time) > 1:
                         if len(time) == 3:
-                            hold += int(time[0])
+                            hold += int(time[0])  # Timmar
                         hold += int(time[-2]) / 60  # Minuter
                         hold += int(time[-1]) / 3600  # Sekunder
                     else:

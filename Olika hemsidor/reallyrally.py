@@ -239,7 +239,7 @@ def rallyCars(driver, rallyData):
                 data["klass"] = klass
                 data["driverklass"] = row[3]
                 data["time"] = row[9]
-                data["time"] = data["time"].replace(".", ":", 1)
+                data["time"] = data["time"].replace(".", ":")
 
                 # Driver
                 data["name"] = row[4].split("/")[0].strip()
@@ -255,7 +255,7 @@ def rallyCars(driver, rallyData):
 
 
 def construct_data(data, writer, rallyData):
-    if data["total_place"] == "":
+    if data["total_place"] == "" or data["time"].strip() == "":
         data["total_place"] = "brutit"
         data["klass_place"] = "brutit"
         data["time"] = ""
