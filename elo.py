@@ -19,13 +19,16 @@ def main():
     # Specify the two folder paths
     folder_path_1 = 'Tävlingar/raceconsult'  # Replace with your first folder path
     folder_path_2 = 'Tävlingar/reallyrally'  # Replace with your second folder path
+    # Replace with your second folder path
+    folder_path_3 = 'Tävlingar/infiniteracing'
 
     # Find CSV files in both folders
     csv_files_1 = find_csv_files(folder_path_1)
     csv_files_2 = find_csv_files(folder_path_2)
+    csv_files_3 = find_csv_files(folder_path_3)
 
     # Combine the paths from both folders
-    combined_csv_files = csv_files_1 + csv_files_2
+    combined_csv_files = csv_files_1 + csv_files_2 + csv_files_3
 
     # Sort the combined list of paths
     sorted_csv_files = sorted(

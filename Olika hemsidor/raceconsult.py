@@ -24,7 +24,7 @@ def main():
         print(rallyName)
         print(rallyDate)
 
-        with open("Tävlingar/Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
+        with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
             writer = csv.writer(file)
             header = ["total_place", "klass_place",
                       "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
