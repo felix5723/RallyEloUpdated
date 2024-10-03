@@ -11,15 +11,15 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 
-MAX_RALLYS = 200
+MAX_RALLYS = 5
 
 
 def sleep():
     time.sleep(5)
 
 
-def main():
-    rallyList = rallysGraber()
+def main(max_rallys):
+    rallyList = rallysGraber(max_rallys)
 
     for href in rallyList:
         driver = rallyMaker(href)
@@ -28,7 +28,7 @@ def main():
     driver.quit()
 
 
-def rallysGraber():
+def rallysGraber(max_rallys):
     url = 'https://www.infiniteracing.se/results/'
 
     driver.get(url)
@@ -39,7 +39,7 @@ def rallysGraber():
     rallyList = []
     x = 0
     for rally in rallys:
-        if x == MAX_RALLYS:
+        if x == max_rallys:
             break
         x += 1
         print(rally)
@@ -98,7 +98,12 @@ def rallyCars(driver):
     else:
         # Find scoreboard table
         for x in range(100):
-            table = driver.find_element_by_id('totalRankingTable')
+            table = WebDriverWait(driver, 10).until(
+                # Use the appropriate selector for the table
+                EC.presence_of_element_located(
+                    (By.ID, 'totalRankingTable'))
+            )
+            # table = driver.find_element_by_id('totalRankingTable')
             table_html = table.get_attribute('outerHTML')
             soup = BeautifulSoup(table_html, 'html.parser')
             soup = soup.find('tbody', id='resultTableBody')
@@ -231,4 +236,5 @@ def split_on_last_space(text):
     return before_last_space, after_last_space, happend
 
 
-main()
+if __name__ == "__main__":
+    main(MAX_RALLYS)

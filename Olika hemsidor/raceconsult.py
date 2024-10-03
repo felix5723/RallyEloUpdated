@@ -2,10 +2,12 @@ import requests
 import csv
 from bs4 import BeautifulSoup
 
+MAX_RALLYS = 4
 
-def main():
 
-    urls = grabRallys()
+def main(max_rallys):
+
+    urls = grabRallys(max_rallys)
 
     # url = input("Klistra in länken till tävlingen: ")
     # url = "https://www.raceconsulting.com/rally/resultat/totalresultat.jsp?competition=1484"
@@ -60,12 +62,15 @@ def main():
             construct_data(data, writer, rallyName, rallyDate)
 
 
-def grabRallys():
+def grabRallys(max_rallys):
     urls = []
     banned = ["221", "222", "392", "812",
               "1026", "1061", "1084", "1097", "1424"]
 
+    made_rallys = 0
     for year in range(2025, 2004, -1):
+        if made_rallys > max_rallys:
+            break
         url = "https://www.raceconsulting.com/rally/resultat/index.jsp?year=" + \
             str(year)
         page = requests.get(url)
@@ -73,17 +78,22 @@ def grabRallys():
         soup = BeautifulSoup(page.text, 'html.parser')
         rallysInYear = soup.find('table').find_all('tr')
         for x in range(1, (len(rallysInYear)-1), 1):
+            made_rallys += 1
+            if made_rallys > max_rallys:
+                break
             # for rally in rallysInYear:
             totalurl = "https://www.raceconsulting.com/rally/resultat/totalresultat.jsp?competition="
             rallysInYear[x] = rallysInYear[x].find_all('td')
             if rallysInYear[x]:
-                number = rallysInYear[x][0].find('a')['href'].split("=")[-1]
+                number = rallysInYear[x][0].find(
+                    'a')['href'].split("=")[-1]
                 if number not in banned:
                     totalurl = totalurl + number
                     urls.append(totalurl)
                 else:
                     print("BANNED")
                     print(number)
+
     return urls
 
 
@@ -99,4 +109,5 @@ def construct_data(data, writer, rallyName, rallyDate):
                             data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"], data["time"]])
 
 
-main()
+if __name__ == "__main__":
+    main(MAX_RALLYS)

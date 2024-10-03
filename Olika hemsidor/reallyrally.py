@@ -10,22 +10,24 @@ from selenium.webdriver.support import expected_conditions as EC
 
 driver = webdriver.Chrome()
 
-MAX_RALLYS = 10
 URL = 'https://reallyrally.se/#/race'
+
+MAX_RALLYS = 200
 
 
 def sleep():
     time.sleep(5)
 
 
-def main():
-    rallyList, rallyData, driver = rallysGraber()
+def main(max_rallys):
+    rallyList, rallyData, driver = rallysGraber(max_rallys)
 
     for x in range(len(rallyList)):
         if rallyList[x] != False:
             checkURL()
-            driver = rallyMaker(rallyList[x], x)
-            rallyCars(driver, rallyData[x])
+            driver, made_it = rallyMaker(rallyList[x], x)
+            if made_it == True:
+                rallyCars(driver, rallyData[x])
 
     driver.quit()
 
@@ -38,7 +40,7 @@ def checkURL():
             driver.back()
 
 
-def rallysGraber():
+def rallysGraber(max_rallys):
     driver.get(URL)
     sleep()
 
@@ -54,7 +56,7 @@ def rallysGraber():
     rallys_html = BeautifulSoup(rallys_html, 'html.parser')
     rallys_html = rallys_html.find_all("div")
     for rowNumber in range(len(rallys)):
-        if x == MAX_RALLYS:
+        if x == max_rallys:
             break
         x += 1
 
@@ -105,11 +107,12 @@ def fetch_button_by_id(button_id):
 
 
 def rallyMaker(button, rowNumber):
-    rallys = WebDriverWait(driver, 10).until(
+    made_it = True
+    rallys = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CLASS_NAME, 'p-card-content'))
     )
     rallys = rallys.find_elements_by_xpath('./div')
-    button = WebDriverWait(rallys[rowNumber], 10).until(
+    button = WebDriverWait(rallys[rowNumber], 5).until(
         EC.element_to_be_clickable(
             # Relative XPath to find button inside the row
             (By.XPATH, './/button[contains(@class, "p-button-primary")]')
@@ -118,17 +121,18 @@ def rallyMaker(button, rowNumber):
     button.click()
 
     try:
-        element = WebDriverWait(driver, 10).until(
+        element = WebDriverWait(driver, 5).until(
             EC.element_to_be_clickable(
                 (By.XPATH, '(//*[@class="p-menubar-button"])[2]')
             ))
         element.click()
     except:
+        made_it = False
         print("No menu bar")
 
     try:
         # Wait for the span with the text 'Totalplacering' to be visible
-        span_element = WebDriverWait(driver, 10).until(
+        span_element = WebDriverWait(driver, 5).until(
             EC.visibility_of_element_located(
                 (By.XPATH,
                     '//span[@class="p-menuitem-text ng-star-inserted" and text()="Resultat"]')
@@ -159,11 +163,12 @@ def rallyMaker(button, rowNumber):
                     ))
                 element.click()
             except Exception as e:
+                made_it = False
                 print("No results button")
 
     try:
         # Wait for the span with the text 'Totalplacering' to be visible
-        span_element = WebDriverWait(driver, 10).until(
+        span_element = WebDriverWait(driver, 5).until(
             EC.visibility_of_element_located(
                 (By.XPATH,
                     '//span[@class="p-button-label" and text()="Resultat sorterade på klassplacering"]')
@@ -176,9 +181,10 @@ def rallyMaker(button, rowNumber):
         parent_button.click()  # Click the button
         print("Clicked the 'Resultat sorterade på klassplacering' button.")
     except Exception as e:
+        made_it = False
         print("No klass results")
 
-    return driver
+    return driver, made_it
 
 
 def rallyCars(driver, rallyData):
@@ -281,4 +287,5 @@ def dataCompresser(rallyList, rallyData, button, finished):
     return rallyList, rallyData
 
 
-main()
+if __name__ == "__main__":
+    main(MAX_RALLYS)
