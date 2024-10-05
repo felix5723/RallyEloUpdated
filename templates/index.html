@@ -5,6 +5,9 @@
 <div>
   <canvas id="myChart" width="900" height="400"></canvas>
 </div>
+<div>
+  <canvas id="myChart2" width="900" height="400"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -34,6 +37,46 @@
         {
           label: "elo weighted",
           data: {{ eloWeighted | safe }},
+          borderWidth: 1,
+        },
+      ],
+    },
+    options: {
+        responsive: false,
+      scales: {
+        y: {
+          beginAtZero: false,
+        },
+      },
+    },
+  });
+</script>
+<script>
+  const ctx = document.getElementById("myChart2");
+
+  new Chart(ctx, {
+    type: "line",
+    data: {
+      labels: {{ codriverlabels | safe }},
+      datasets: [
+        {
+          label: "elo total",
+          data: {{ codrivereloTotal | safe }},
+          borderWidth: 1,
+        },
+        {
+          label: "elo kombi",
+          data: {{ codrivereloKombi | safe }},
+          borderWidth: 1,
+        },
+        {
+          label: "elo klass",
+          data: {{ codrivereloKlass | safe }},
+          borderWidth: 1,
+        },
+        {
+          label: "elo weighted",
+          data: {{ codrivereloWeighted | safe }},
           borderWidth: 1,
         },
       ],

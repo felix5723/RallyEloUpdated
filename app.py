@@ -9,50 +9,57 @@ app = Flask(__name__)
 def index():
 
     searchName = "Felix Holmsten"
-    position = "driver"  # driver or codriver
 
     with open('elo.json', encoding='utf-8') as fh:
         data = json.load(fh)
 
-    elo = [(800, 800, 800, 800)]
-    rallyName = ["Start"]
+    elo = {"driver": [(800, 800, 800, 800)], "codriver": [
+        (800, 800, 800, 800)]}
+    rallyName = {"driver": ["Start"], "codriver": ["Start"]}
 
     print(type(data))
     # print(data)
-    for name in data[position]:
-        if name.lower() == searchName.lower():
-            print(data[position][name])
-            for rally in data[position][name]["history"]:
-                print("---")
-                print(data[position][name]["history"][rally])
-                print("---")
-                elo.append((data[position][name]["history"]
-                           [rally]["elo after rally"]["total"], data[position][name]["history"]
-                           [rally]["elo after rally"]["kombi"], data[position][name]["history"]
-                           [rally]["elo after rally"]["klass"], data[position][name]["history"]
-                           [rally]["elo after rally"]["weighted"]))
-                rallyName.append(data[position][name]["history"][rally]["Rally name"] +
-                                 " " + data[position][name]["history"][rally]["klass"])
-                print(data[position][name]["history"]
-                      [rally]["elo after rally"])
-            continue
+    for position in ["driver", "codriver"]:
+        for name in data[position]:
+            if name.lower() == searchName.lower():
+                print(data[position][name])
+                for rally in data[position][name]["history"]:
+                    print("---")
+                    print(data[position][name]["history"][rally])
+                    print("---")
+                    elo[position].append((data[position][name]["history"]
+                                          [rally]["elo after rally"]["total"], data[position][name]["history"]
+                                          [rally]["elo after rally"]["kombi"], data[position][name]["history"]
+                                          [rally]["elo after rally"]["klass"], data[position][name]["history"]
+                                          [rally]["elo after rally"]["weighted"]))
+                    rallyName[position].append(data[position][name]["history"][rally]["Rally name"] +
+                                               " " + data[position][name]["history"][rally]["klass"])
+                    print(data[position][name]["history"]
+                          [rally]["elo after rally"])
+                continue
 
-    print(elo)
+    print(elo["driver"])
     print(rallyName)
+    print(elo)
 
-    eloTotal = [row[0] for row in elo]
-    eloKombi = [row[1] for row in elo]
-    eloKlass = [row[2] for row in elo]
-    eloWeighted = [row[3] for row in elo]
-    labels = rallyName
+    drivereloTotal = [row[0] for row in elo["driver"]]
+    drivereloKombi = [row[1] for row in elo["driver"]]
+    drivereloKlass = [row[2] for row in elo["driver"]]
+    drivereloWeighted = [row[3] for row in elo["driver"]]
+    driverlabels = rallyName["driver"]
+    codrivereloTotal = [row[0] for row in elo["codriver"]]
+    codrivereloKombi = [row[1] for row in elo["codriver"]]
+    codrivereloKlass = [row[2] for row in elo["codriver"]]
+    codrivereloWeighted = [row[3] for row in elo["codriver"]]
+    codriverlabels = rallyName["codriver"]
     print("----------")
-    print(eloTotal)
-    print(eloKombi)
-    print(eloKlass)
-    print(eloWeighted)
-    print(labels)
+    print(drivereloTotal)
+    print(drivereloKombi)
+    print(drivereloKlass)
+    print(drivereloWeighted)
+    print(driverlabels)
 
-    return render_template('index.html', eloTotal=eloTotal, eloKombi=eloKombi, eloKlass=eloKlass, eloWeighted=eloWeighted, labels=labels)
+    return render_template('index.html', eloTotal=drivereloTotal, eloKombi=drivereloKombi, eloKlass=drivereloKlass, eloWeighted=drivereloWeighted, labels=driverlabels, codrivereloTotal=codrivereloTotal, codrivereloKombi=codrivereloKombi, codrivereloKlass=codrivereloKlass, codrivereloWeighted=codrivereloWeighted, codriverlabels=codriverlabels)
 
 
 if __name__ == "__main__":
