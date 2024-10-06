@@ -12,7 +12,7 @@ driver = webdriver.Chrome()
 
 URL = 'https://reallyrally.se/#/race'
 
-MAX_RALLYS = 200
+MAX_RALLYS = 5
 
 
 def sleep():
@@ -230,6 +230,8 @@ def rallyCars(driver, rallyData):
             klass = row[0]
         else:
             data = {}
+            if row[0] == "93":
+                print("alloha")
 
             if row[0] != "Snr":
                 # Allmän info
@@ -243,12 +245,14 @@ def rallyCars(driver, rallyData):
 
                 # Driver
                 data["name"] = row[4].split("/")[0].strip()
+                data["name"] = " ".join(data["name"].split())
                 data["klubb"] = row[5].split("/")[0].strip()
                 data["driver"] = "driver"
                 construct_data(data, writer, rallyData)
 
                 # Codriver
                 data["name"] = row[4].split("/")[1].strip()
+                data["name"] = " ".join(data["name"].split())
                 data["klubb"] = row[5].split("/")[1].strip()
                 data["driver"] = "codriver"
                 construct_data(data, writer, rallyData)
