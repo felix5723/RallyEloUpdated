@@ -1,0 +1,61 @@
+{% extends "homepage.html" %} {% block content %}
+<main>
+  <div
+    class="btn-toolbar mb-3"
+    role="toolbar"
+    aria-label="Toolbar with button groups"
+  >
+    <div class="btn-group me-2" role="group" aria-label="First group">
+      <a
+        href="{{ url_for('drivers', seat='driver') }}"
+        class="btn btn-outline-secondary"
+        >Förare</a
+      >
+      <a
+        href="{{ url_for('drivers', seat='codriver') }}"
+        class="btn btn-outline-secondary"
+        >Co-driver</a
+      >
+      <a
+        href="{{ url_for('drivers', seat='all') }}"
+        class="btn btn-outline-secondary"
+        >Alla</a
+      >
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+        <li><a class="dropdown-item" href="#">Dropdown link</a></li>
+      </ul>
+    </div>
+    <body>
+      <div class="input-group">
+        <div class="input-group-text" id="btnGroupAddon">@</div>
+        <input
+          type="text"
+          id="exampleInput"
+          class="form-control"
+          placeholder="Input group example"
+          aria-label="Input group example"
+          aria-describedby="btnGroupAddon"
+        />
+      </div>
+
+      <a
+        href="{{ url_for('drivers', seat='codriver') }}"
+        class="btn btn-outline-secondary"
+        id="sendLink"
+        >Search som inte funkar</a
+      >
+    </body>
+  </div>
+
+  {% for row in rows %} {% set id = row[0] %} {% set name = row[2] %} {% set
+  klubb = row[3] %}
+  <a
+    ><a
+      href="{{ url_for('profil', id=id, name=name, klubb=klubb) }}"
+      class="btn btn-outline-secondary"
+      >{{name}} {{klubb}}</a
+    ></a
+  ><br />{% endfor %}
+</main>
+{% endblock %}

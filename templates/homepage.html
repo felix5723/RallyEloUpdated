@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rally Sweden Statistics</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    <!-- Link to your CSS file -->
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="#stats">Statistics</a></li>
+          <li>
+            <a href="{{ url_for('drivers', seat='all') }}"
+              >Förare & Co-drivers</a
+            >
+          </li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    {% block content %}
+    <main>
+      <section id="home">
+        <h1>Welcome to Rally Sweden Statistics</h1>
+        <p>Explore detailed stats and insights from Rally Sweden.</p>
+      </section>
+
+      <section id="stats">
+        <h2>Statistics</h2>
+        <p>Latest performance metrics, race times, and other relevant stats.</p>
+        <!-- You can add tables, charts, or graphs here -->
+      </section>
+
+      <section id="drivers">
+        <h2>Top Drivers</h2>
+        <p>Information about participating drivers and their performance.</p>
+        <!-- Consider adding a list or profiles of drivers -->
+      </section>
+
+      <section id="schedule">
+        <h2>Event Schedule</h2>
+        <p>Details about the race schedule and stages.</p>
+        <!-- A calendar or timetable could be useful here -->
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions? Reach out to us!</p>
+        <!-- Contact form or contact details can be added here -->
+      </section>
+    </main>
+    {% endblock %}
+
+    <footer>
+      <p>&copy; 2023 Rally Sweden Statistics. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Link to your JavaScript file -->
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+
+  <body>
+    <canvas id="myChart"></canvas>
+
+    <script>
+      const labels = {{ labels | safe}};
+
+      const data = {
+          labels: labels,
+          datasets: [{
+              label: 'Klass placering',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: {{ klass | safe}},
+          },
+          {
+              label: 'Klass placering av',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: {{ klass_of | safe}},
+          },
+          {
+              label: 'Total placering',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: {{ total | safe}},
+          },
+          {
+              label: 'Total placering av',
+              backgroundColor: 'rgb(255, 99, 132)',
+              borderColor: 'rgb(255, 99, 132)',
+              data: {{ total_of | safe}},
+          }]
+      };
+
+      const config = {
+          type: 'line',
+          data: data,
+          options: { maintainAspectRatio: false }
+      };
+
+      const myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+      );
+    </script>
+  </body>
+</html>

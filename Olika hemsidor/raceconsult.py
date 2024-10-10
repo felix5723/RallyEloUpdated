@@ -1,11 +1,14 @@
 import requests
 import csv
 from bs4 import BeautifulSoup
+from database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
 
 MAX_RALLYS = 4
 
 
 def main(max_rallys):
+    datebase_start()
+    cursor, conn = database_connect()
 
     urls = grabRallys(max_rallys)
 
@@ -23,43 +26,48 @@ def main(max_rallys):
         rallyName = " ".join(rallyInfo[1].text.split())
         rallyName = rallyName.replace(":", "-").replace("/", "-")
         rallyDate = " ".join(rallyInfo[0].text.split())
-        print(rallyName)
-        print(rallyDate)
+        if database_check_if_rally_added(cursor, conn, rallyName, rallyDate) == False:
+            print(rallyName)
+            print(rallyDate)
 
-        with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
-            writer = csv.writer(file)
-            header = ["total_place", "klass_place",
-                      "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
+            with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
+                writer = csv.writer(file)
+                header = ["total_place", "klass_place",
+                          "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
 
-            writer.writerow(header)
+                writer.writerow(header)
 
-        # print(soup.prettify())
-        cars = soup.find_all('tbody')
-        for car in cars:
-            data = {}
-            # print(car.prettify())
-            info = car.find_all('tr')
-            förare = info[0]
+            # print(soup.prettify())
+            cars = soup.find_all('tbody')
+            for car in cars:
+                data = {}
+                # print(car.prettify())
+                info = car.find_all('tr')
+                förare = info[0]
 
-            # Allmän info
-            data["total_place"] = info[0].find_all('td')[0].text
-            data["klass_place"] = info[1].find_all('td')[0].text
-            data["number"] = info[0].find_all('td')[1].text
-            data["klass"] = info[0].find_all('td')[6].text
-            data["driverklass"] = info[0].find_all('td')[2].text
-            data["time"] = info[1].find_all('td')[-2].text
+                # Allmän info
+                data["total_place"] = info[0].find_all('td')[0].text
+                data["klass_place"] = info[1].find_all('td')[0].text
+                data["number"] = info[0].find_all('td')[1].text
+                data["klass"] = info[0].find_all('td')[6].text
+                data["driverklass"] = info[0].find_all('td')[2].text
+                data["time"] = info[1].find_all('td')[-2].text
 
-            # Driver
-            data["name"] = info[0].find_all('td')[4].text
-            data["klubb"] = info[0].find_all('td')[5].text
-            data["driver"] = "driver"
-            construct_data(data, writer, rallyName, rallyDate)
+                # Driver
+                data["name"] = info[0].find_all('td')[4].text
+                data["klubb"] = info[0].find_all('td')[5].text
+                data["driver"] = "driver"
+                construct_data(cursor, conn, data, writer,
+                               rallyName, rallyDate)
 
-            # Codriver
-            data["name"] = info[1].find_all('td')[4].text
-            data["klubb"] = info[1].find_all('td')[5].text
-            data["driver"] = "codriver"
-            construct_data(data, writer, rallyName, rallyDate)
+                # Codriver
+                data["name"] = info[1].find_all('td')[4].text
+                data["klubb"] = info[1].find_all('td')[5].text
+                data["driver"] = "codriver"
+                construct_data(cursor, conn, data, writer,
+                               rallyName, rallyDate)
+            database_add_rally(cursor, conn, rallyName, rallyDate)
+    database_exit(cursor, conn)
 
 
 def grabRallys(max_rallys):
@@ -97,10 +105,14 @@ def grabRallys(max_rallys):
     return urls
 
 
-def construct_data(data, writer, rallyName, rallyDate):
+def construct_data(cursor, conn, data, writer, rallyName, rallyDate):
     if data["total_place"] == "":
         data["total_place"] = "brutit"
         data["klass_place"] = "brutit"
+
+    if data["name"]:  # rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place
+        database_add(cursor, conn, rallyName, rallyDate, data["driver"], data["name"], data["klubb"], data["klass"],
+                     data["driverklass"], data["time"], data["number"], data["total_place"], data["klass_place"])
 
     if data["name"]:
         with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:

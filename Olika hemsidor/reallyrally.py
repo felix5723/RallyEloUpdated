@@ -2,6 +2,7 @@ from selenium import webdriver
 import time
 from bs4 import BeautifulSoup
 import csv
+from database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
 
 
 from selenium.webdriver.common.by import By
@@ -20,6 +21,9 @@ def sleep():
 
 
 def main(max_rallys):
+    datebase_start()
+    cursor, conn = database_connect()
+
     rallyList, rallyData, driver = rallysGraber(max_rallys)
 
     for x in range(len(rallyList)):
@@ -27,9 +31,12 @@ def main(max_rallys):
             checkURL()
             driver, made_it = rallyMaker(rallyList[x], x)
             if made_it == True:
-                rallyCars(driver, rallyData[x])
+                rallyDate, rallyName = rallyData[x].split(" ", 1)
+                if database_check_if_rally_added(cursor, conn, rallyName, rallyDate) == False:
+                    rallyCars(cursor, conn, driver, rallyData[x])
 
     driver.quit()
+    database_exit(cursor, conn)
 
 
 def checkURL():
@@ -187,7 +194,7 @@ def rallyMaker(button, rowNumber):
     return driver, made_it
 
 
-def rallyCars(driver, rallyData):
+def rallyCars(cursor, conn, driver, rallyData):
     # Find scoreboard table
     for x in range(100):
         table = WebDriverWait(driver, 10).until(
@@ -248,27 +255,35 @@ def rallyCars(driver, rallyData):
                 data["name"] = " ".join(data["name"].split())
                 data["klubb"] = row[5].split("/")[0].strip()
                 data["driver"] = "driver"
-                construct_data(data, writer, rallyData)
+                construct_data(cursor, conn, data, writer, rallyData)
 
                 # Codriver
                 data["name"] = row[4].split("/")[1].strip()
                 data["name"] = " ".join(data["name"].split())
                 data["klubb"] = row[5].split("/")[1].strip()
                 data["driver"] = "codriver"
-                construct_data(data, writer, rallyData)
+                construct_data(cursor, conn, data, writer, rallyData)
+    rallyDate, rallyName = rallyData.split(" ", 1)
+    database_add_rally(cursor, conn, rallyName, rallyDate)
 
 
-def construct_data(data, writer, rallyData):
+def construct_data(cursor, conn, data, writer, rallyData):
     if data["total_place"] == "" or data["time"].strip() == "":
         data["total_place"] = "brutit"
         data["klass_place"] = "brutit"
         data["time"] = ""
+
+    rallyDate, rallyName = rallyData.split(" ", 1)
+    if data["name"]:  # rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place
+        check = database_add(cursor, conn, rallyName, rallyDate, data["driver"], data["name"], data["klubb"], data["klass"],
+                             data["driverklass"], data["time"], data["number"], data["total_place"], data["klass_place"])
 
     if data["name"]:
         with open("Tävlingar/reallyrally/" + rallyData + '.csv', 'a', newline='', encoding="utf-8") as file:
             writer = csv.writer(file)
             writer.writerow([data["total_place"], data["klass_place"], data["number"],
                             data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"], data["time"]])
+    return check
 
 
 def dataCompresser(rallyList, rallyData, button, finished):

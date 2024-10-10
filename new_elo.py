@@ -105,11 +105,11 @@ def check_driver_in_driversData(driversData, data):
         if driver_combined not in driversData[seat]:
             driversData[seat][driver_combined] = {
                 "k_faktor": 1,
-                "elo": {"total_elo": 800, "klass_elo": 800, "history": []},
-                "rallys": [{"date": date, "rallyName": rallyName, "klass": driver["klass"], "data": driver}]}
+                "elo": {"total_elo": 800, "klass_elo": 800, "history": {}},
+                "rallys": {date: {"date": date, "rallyName": rallyName, "klass": driver["klass"], "data": driver}}}
         else:
-            driversData[seat][driver_combined]["rallys"].append(
-                {"date": date, "rallyName": rallyName, "klass": driver["klass"], "data": driver})
+            driversData[seat][driver_combined]["rallys"][date] = {
+                "date": date, "rallyName": rallyName, "klass": driver["klass"], "data": driver}
     return driversData
 
 
@@ -122,7 +122,8 @@ def find_driver_in_driversData(driver, driversData):
 
 def dynamic_K_faktor(rallys, k_faktor):
     if len(rallys) > 10:
-        if rallys[-1]["data"]["dnf"] == False:
+        last_key = next(reversed(rallys))
+        if rallys[last_key]["data"]["dnf"] == False:
             k_faktor = round(k_faktor + 0.1, 2)
             if k_faktor > K_FAKTOR_MAX:
                 k_faktor = K_FAKTOR_MAX
@@ -195,9 +196,9 @@ def elo_calculator(driver, driversData, elo_gathered, date, rallyName):
         elo_data[klass+"_elo"] += elo
 
     # Spara elon i history
-    elo_data["history"].append({"rallyName": rallyName, "date": date, "klass": driver["klass"],
-                                "total_elo": elo_data["total_elo"], "klass_elo": elo_data["klass_elo"],
-                                "probabilitys": {"total": total_prob, "klass": klass_prob}})
+    elo_data["history"][date] = {"rallyName": rallyName, "date": date, "klass": driver["klass"],
+                                 "total_elo": elo_data["total_elo"], "klass_elo": elo_data["klass_elo"],
+                                 "probabilitys": {"total": total_prob, "klass": klass_prob}}
 
 
 def elo_graber(driversData, driversInRally):
