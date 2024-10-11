@@ -3,14 +3,12 @@ import time
 from bs4 import BeautifulSoup
 import csv
 import re
-from database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
+from .database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
 
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-driver = webdriver.Chrome()
 
 MAX_RALLYS = 5
 
@@ -20,20 +18,21 @@ def sleep():
 
 
 def main(max_rallys):
+    driver = webdriver.Chrome()
     datebase_start()
     cursor, conn = database_connect()
 
-    rallyList = rallysGraber(max_rallys)
+    rallyList = rallysGraber(driver, max_rallys)
 
     for href in rallyList:
-        driver = rallyMaker(href)
+        driver = rallyMaker(driver, href)
         rallyCars(cursor, conn, driver)
 
     driver.quit()
     database_exit(cursor, conn)
 
 
-def rallysGraber(max_rallys):
+def rallysGraber(driver, max_rallys):
     url = 'https://www.infiniteracing.se/results/'
 
     driver.get(url)
@@ -58,7 +57,7 @@ def rallysGraber(max_rallys):
     return rallyList
 
 
-def rallyMaker(href):
+def rallyMaker(driver, href):
     url = href
     driver.get(url)
     # sleep()
@@ -184,8 +183,6 @@ def rallyCars(cursor, conn, driver):
                                rallyName, rallyDate)
 
                 # Codriver
-                print(klubbs[-1])
-                print(klubbs[-1].strip()[:8])
                 data["name"] = names[-1].strip().split("Anmälare")[0]
                 if klubbs[-1].strip()[:8].lower() == "anmälare":
                     for x in range(len(klubbs)-2, 0, -1):

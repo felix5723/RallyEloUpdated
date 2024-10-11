@@ -2,14 +2,12 @@ from selenium import webdriver
 import time
 from bs4 import BeautifulSoup
 import csv
-from database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
+from .database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
 
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
-driver = webdriver.Chrome()
 
 URL = 'https://reallyrally.se/#/race'
 
@@ -21,15 +19,16 @@ def sleep():
 
 
 def main(max_rallys):
+    driver = webdriver.Chrome()
     datebase_start()
     cursor, conn = database_connect()
 
-    rallyList, rallyData, driver = rallysGraber(max_rallys)
+    rallyList, rallyData, driver = rallysGraber(driver, max_rallys)
 
     for x in range(len(rallyList)):
         if rallyList[x] != False:
-            checkURL()
-            driver, made_it = rallyMaker(rallyList[x], x)
+            checkURL(driver)
+            driver, made_it = rallyMaker(driver, rallyList[x], x)
             if made_it == True:
                 rallyDate, rallyName = rallyData[x].split(" ", 1)
                 if database_check_if_rally_added(cursor, conn, rallyName, rallyDate) == False:
@@ -39,7 +38,7 @@ def main(max_rallys):
     database_exit(cursor, conn)
 
 
-def checkURL():
+def checkURL(driver):
     while True:
         if driver.current_url == URL:
             break
@@ -47,7 +46,7 @@ def checkURL():
             driver.back()
 
 
-def rallysGraber(max_rallys):
+def rallysGraber(driver, max_rallys):
     driver.get(URL)
     sleep()
 
@@ -107,13 +106,7 @@ def rallysGraber(max_rallys):
     return rallyList, rallyData, driver
 
 
-def fetch_button_by_id(button_id):
-    return WebDriverWait(driver, 1).until(
-        EC.element_to_be_clickable((By.ID, button_id))
-    )
-
-
-def rallyMaker(button, rowNumber):
+def rallyMaker(driver, button, rowNumber):
     made_it = True
     rallys = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CLASS_NAME, 'p-card-content'))
@@ -275,15 +268,14 @@ def construct_data(cursor, conn, data, writer, rallyData):
 
     rallyDate, rallyName = rallyData.split(" ", 1)
     if data["name"]:  # rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place
-        check = database_add(cursor, conn, rallyName, rallyDate, data["driver"], data["name"], data["klubb"], data["klass"],
-                             data["driverklass"], data["time"], data["number"], data["total_place"], data["klass_place"])
+        database_add(cursor, conn, rallyName, rallyDate, data["driver"], data["name"], data["klubb"], data["klass"],
+                     data["driverklass"], data["time"], data["number"], data["total_place"], data["klass_place"])
 
     if data["name"]:
         with open("Tävlingar/reallyrally/" + rallyData + '.csv', 'a', newline='', encoding="utf-8") as file:
             writer = csv.writer(file)
             writer.writerow([data["total_place"], data["klass_place"], data["number"],
                             data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"], data["time"]])
-    return check
 
 
 def dataCompresser(rallyList, rallyData, button, finished):

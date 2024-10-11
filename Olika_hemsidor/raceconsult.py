@@ -1,7 +1,7 @@
 import requests
 import csv
 from bs4 import BeautifulSoup
-from database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
+from .database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
 
 MAX_RALLYS = 4
 

@@ -5,7 +5,19 @@
 <div class="container">
   <div style="height: 50vh; width: 50%"><h2>Test!!!!!</h2></div>
   <div style="height: 50vh; width: 50%">
-    {% include "placement/placementgraf.html" %}
+    <a
+      href="{{ url_for('profil', id=id, name=name, klubb=klubb, placement='placement') }}"
+      class="btn btn-outline-secondary"
+      >Placering</a
+    >
+    <a
+      href="{{ url_for('profil', id=id, name=name, klubb=klubb, placement='elo') }}"
+      class="btn btn-outline-secondary"
+      >Rankning</a
+    >
+    {% if placement=='placement' %} {% include "placement/placementgraf.html" %}
+    {% elif placement=='elo' %} {% include "placement/elograf.html" %} {% endif
+    %}
   </div>
 </div>
 {% endblock %}

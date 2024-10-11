@@ -19,6 +19,7 @@ def database_exit(cursor, conn):
     # Print the results
     for row in rows:
         print(row)
+    print("---------------")
     cursor.close()
     conn.close()
     return "closed"
@@ -41,11 +42,11 @@ def database_check_if_user_added(cursor, conn, driver, name, klubb):
     if len(if_user) == 0:
         cursor.execute(
             'INSERT INTO users (driver, name, klubb) VALUES (?, ?, ?)', (driver, name, klubb))
+        conn.commit()
         cursor.execute(
             'SELECT * FROM users WHERE driver = ? AND name = ? AND klubb = ?', (driver, name, klubb))
         if_user = cursor.fetchall()
     user_id = if_user[0][0]
-    conn.commit()
     return user_id
 
 
@@ -116,5 +117,20 @@ def datebase_start():
     )
     ''')
     conn.commit
+
+    # Create a table for elo
+    cursor.execute('''
+    CREATE TABLE IF NOT EXISTS userselo (
+        id INTEGER PRIMARY KEY,
+        user_id INTEGER,  -- Add user_id column for foreign key reference,
+        rallys_id INTEGER,  -- Add rallys_id column for foreign key reference,
+        rallyName TEXT NOT NULL,
+        rallyDate TEXT NOT NULL,
+        total_elo TEXT NOT NULL,
+        klass_elo TEXT NOT NULL
+    )
+    ''')
+    conn.commit
+
     # Close the cursor and connection
     database_exit(cursor, conn)
