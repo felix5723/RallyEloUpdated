@@ -4,16 +4,11 @@ from elo_database import main as elograbber
 from Olika_hemsidor.database import datebase_start as datebase_start
 from apscheduler.schedulers.background import BackgroundScheduler
 import json
-import time
 import sqlite3
-import matplotlib.pyplot as plt
-import io
-import base64
-import numpy as np
 from datetime import datetime, timedelta
 
-MAX_RALLYS = 20
-CHOICE = "go"  # go / refresh
+MAX_RALLYS = 10
+CHOICE = "refresh"  # go / refresh
 
 app = Flask(__name__)
 
@@ -91,7 +86,7 @@ def homepage():
 
 @app.route('/update')
 def homepage2():
-    rallygrabber()
+    rally_updater()
     return render_template('homepage.html')
 
 

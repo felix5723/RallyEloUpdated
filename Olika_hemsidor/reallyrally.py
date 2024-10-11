@@ -55,9 +55,9 @@ def rallysGraber(driver, max_rallys):
     x = 0
     tested_rallys = 0
 
-    rallys = driver.find_element_by_class_name('p-card-content')
+    rallys = driver.find_element(By.CLASS_NAME, 'p-card-content')
     rallys_html = rallys.get_attribute('innerHTML')
-    rallys = rallys.find_elements_by_xpath('./div')
+    rallys = rallys.find_elements(By.XPATH, './div')
     # Parse the HTML with BeautifulSoup
     rallys_html = BeautifulSoup(rallys_html, 'html.parser')
     rallys_html = rallys_html.find_all("div")
@@ -111,7 +111,7 @@ def rallyMaker(driver, button, rowNumber):
     rallys = WebDriverWait(driver, 5).until(
         EC.presence_of_element_located((By.CLASS_NAME, 'p-card-content'))
     )
-    rallys = rallys.find_elements_by_xpath('./div')
+    rallys = rallys.find_elements(By.XPATH, './div')
     button = WebDriverWait(rallys[rowNumber], 5).until(
         EC.element_to_be_clickable(
             # Relative XPath to find button inside the row

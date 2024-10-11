@@ -38,7 +38,7 @@ def rallysGraber(driver, max_rallys):
     driver.get(url)
     sleep()
 
-    rallys = driver.find_elements_by_class_name('list-group-item')
+    rallys = driver.find_elements(By.CLASS_NAME, "list-group-item")
 
     rallyList = []
     x = 0
@@ -91,7 +91,7 @@ def rallyMaker(driver, href):
 
 def rallyCars(cursor, conn, driver):
     # Find the rally name and date
-    h2_element = driver.find_element_by_xpath('//h2[1]')
+    h2_element = driver.find_element(By.XPATH, '//h2[1]')
     h2_text = driver.execute_script(
         "return arguments[0].childNodes[0].nodeValue;", h2_element).strip()
     rallyName, rallyDate, happend = split_on_last_space(h2_text)
@@ -128,12 +128,12 @@ def rallyCars(cursor, conn, driver):
                     sleep()  # Sleeping
 
             # Prep
-            with open("Tävlingar/infiniteracing/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
-                writer = csv.writer(file)
-                header = ["total_place", "klass_place",
-                          "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
+            #with open("Tävlingar/infiniteracing/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
+            #    writer = csv.writer(file)
+            #    header = ["total_place", "klass_place",
+            #              "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
 
-                writer.writerow(header)
+            #    writer.writerow(header)
 
             # Loop through each car
             # Display the DataFrame to verify it was read correctly
@@ -179,7 +179,7 @@ def rallyCars(cursor, conn, driver):
                 data["name"] = names[0].strip()
                 data["klubb"] = klubbs[0].strip()
                 data["driver"] = "driver"
-                construct_data(cursor, conn, data, writer,
+                construct_data(cursor, conn, data,
                                rallyName, rallyDate)
 
                 # Codriver
@@ -192,12 +192,12 @@ def rallyCars(cursor, conn, driver):
                 else:
                     data["klubb"] = klubbs[-1].strip()
                 data["driver"] = "codriver"
-                construct_data(cursor, conn, data, writer,
+                construct_data(cursor, conn, data,
                                rallyName, rallyDate)
         database_add_rally(cursor, conn, rallyName, rallyDate)
 
 
-def construct_data(cursor, conn, data, writer, rallyName, rallyDate):
+def construct_data(cursor, conn, data, rallyName, rallyDate):
     if data["total_place"] == "":
         data["total_place"] = "brutit"
         data["klass_place"] = "brutit"
@@ -206,11 +206,11 @@ def construct_data(cursor, conn, data, writer, rallyName, rallyDate):
         database_add(cursor, conn, rallyName, rallyDate, data["driver"], data["name"], data["klubb"], data["klass"],
                      data["driverklass"], data["time"], data["number"], data["total_place"], data["klass_place"])
 
-    if data["name"]:
-        with open("Tävlingar/infiniteracing/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
-            writer = csv.writer(file)
-            writer.writerow([data["total_place"], data["klass_place"], data["number"],
-                            data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"], data["time"]])
+    #if data["name"]:
+    #    with open("Tävlingar/infiniteracing/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
+    #        writer = csv.writer(file)
+    #        writer.writerow([data["total_place"], data["klass_place"], data["number"],
+    #                        data["driverklass"], data["name"], data["klubb"], data["klass"], data["driver"], data["time"]])
 
 
 def split_on_last_space(text):
