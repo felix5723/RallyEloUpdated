@@ -6,7 +6,7 @@ def database_connect():
     conn = mysql.connector.connect(
         host="felix5723.mysql.pythonanywhere-services.com",
         user="felix5723",
-        password="fotboll123",  # Replace with your actual MySQL password
+        password="databasepass",  # Replace with your actual MySQL password
         database="felix5723$default"  # Replace with the name of your MySQL database
     )
 
