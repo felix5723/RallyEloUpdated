@@ -1,12 +1,24 @@
-import sqlite3
+import mysql.connector
 
 
 def database_connect():
-    # Connect to the database (it will create the file if it doesn't exist)
-    # You can change the name as needed
-    conn = sqlite3.connect('my_database.db')
+
+    # Database connection settings
+    conn = mysql.connector.connect(
+        host="felix5723.mysql.pythonanywhere-services.com",
+        user="felix5723",
+        password="your_mysql_password",  # Replace with your actual MySQL password
+        database="your_database_name"  # Replace with the name of your MySQL database
+    )
 
     cursor = conn.cursor()
+
+    # Check connection
+    if conn.is_connected():
+        print("Successfully connected to the MySQL database")
+    else:
+        print("Failed to connect to the MySQL database")
+
     return cursor, conn
 
 
