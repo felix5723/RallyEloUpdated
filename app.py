@@ -2,7 +2,7 @@ from flask import Flask, render_template, send_from_directory, request, jsonify
 from Olika_hemsidor.alla import main as rallygrabber
 from elo_database import main as elograbber
 from Olika_hemsidor.database import datebase_start as datebase_start
-from apscheduler.schedulers.background import BackgroundScheduler
+# from apscheduler.schedulers.background import BackgroundScheduler
 import json
 import time
 import sqlite3
@@ -19,7 +19,7 @@ app = Flask(__name__)
 
 
 # Skapa en schemaläggare
-scheduler = BackgroundScheduler()
+# scheduler = BackgroundScheduler()
 
 # Definiera en uppgift som ska köras
 
@@ -64,14 +64,14 @@ def rally_updater():
 
 
 # Lägg till en uppgift som körs var 12:e timme
-scheduler.add_job(func=scheduled_update, trigger="interval", hours=12)
+# scheduler.add_job(func=scheduled_update, trigger="interval", hours=12)
 # Lägg till ett cron-jobb som körs varje söndag kl. 10:00
-scheduler.add_job(func=rally_updater, trigger='cron',
-                  day_of_week='sun', hour=20, minute=00, max_instances=1)
+# scheduler.add_job(func=rally_updater, trigger='cron',
+#                  day_of_week='sun', hour=20, minute=00, max_instances=1)
 
 
 # Starta schemaläggaren
-scheduler.start()
+# scheduler.start()
 
 
 def database_connect():
@@ -242,11 +242,11 @@ def index():
     return render_template('index.html', eloTotal=drivereloTotal, eloKombi=drivereloKombi, eloKlass=drivereloKlass, eloWeighted=drivereloWeighted, labels=driverlabels, codrivereloTotal=codrivereloTotal, codrivereloKombi=codrivereloKombi, codrivereloKlass=codrivereloKlass, codrivereloWeighted=codrivereloWeighted, codriverlabels=codriverlabels)
 
 
-# if __name__ == "__main__":
-#    app.run(debug=True)
 if __name__ == "__main__":
-    try:
-        datebase_start()
-        app.run(debug=True, use_reloader=False)
-    except (KeyboardInterrupt, SystemExit):
-        scheduler.shutdown()
+    app.run(debug=True)
+# if __name__ == "__main__":
+#    try:
+#        datebase_start()
+#        app.run(debug=True, use_reloader=False)
+#    except (KeyboardInterrupt, SystemExit):
+#        scheduler.shutdown()
