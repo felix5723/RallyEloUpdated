@@ -1,7 +1,7 @@
 from flask import Flask, render_template, send_from_directory, request, jsonify
 from Olika_hemsidor.alla import main as rallygrabber
 from elo_database import main as elograbber
-from Olika_hemsidor.database import database_start as database_start
+from Olika_hemsidor.database import database_start, database_connect
 # from apscheduler.schedulers.background import BackgroundScheduler
 import json
 import sqlite3
@@ -19,15 +19,25 @@ app = Flask(__name__)
 # Definiera en uppgift som ska köras
 
 
+# Automatically create the database and tables if they don't exist
+@app.before_first_request
+def create_tables():
+    print("updated")
+    database_start()
+    print("updated")
+    print("Database updated")
+
+
 def scheduled_update():
     print("Schemalagd uppdatering körs!")
     # Din funktion för att hämta resultat
 
 
 def rally_updater():
+    print("Connecting")
     cursor, conn = database_connect()
-    cursor.execute(
-        'SELECT * FROM rallys ORDER BY rallyDate DESC')
+    print("Connecting")
+    cursor.execute('SELECT * FROM rallys ORDER BY rallyDate DESC')
     rallys = cursor.fetchall()
     if len(rallys) > 0:
         print(rallys)
@@ -39,8 +49,7 @@ def rally_updater():
     rallygrabber(MAX_RALLYS, CHOICE)
 
     if date != None:
-        cursor.execute(
-            'SELECT * FROM rallys ORDER BY rallyDate DESC')
+        cursor.execute('SELECT * FROM rallys ORDER BY rallyDate DESC')
         rallys = cursor.fetchall()
         for x in range(newest_index, len(rallys)-1):
             print(f'ID: {x+1} av {len(rallys)}')
@@ -67,15 +76,6 @@ def rally_updater():
 
 # Starta schemaläggaren
 # scheduler.start()
-
-
-def database_connect():
-    # Connect to the database (it will create the file if it doesn't exist)
-    # You can change the name as needed
-    conn = sqlite3.connect('my_database.db')
-
-    cursor = conn.cursor()
-    return cursor, conn
 
 
 @app.route('/')
@@ -238,7 +238,6 @@ def index():
 
 
 if __name__ == "__main__":
-    database_start()
     app.run(debug=True)
 # if __name__ == "__main__":
 #    try:

@@ -3,13 +3,11 @@ import os
 
 
 def database_connect():
-    # Use an absolute path for the SQLite database
-    # Get the absolute path of the current file
+    print("hello")
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    # Define the path for the SQLite database
+    print(BASE_DIR)
     db_path = os.path.join(BASE_DIR, 'my_database.db')
-
-    # Connect to the SQLite database
+    print(f"Database path: {db_path}")  # Debugging
     conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     return cursor, conn

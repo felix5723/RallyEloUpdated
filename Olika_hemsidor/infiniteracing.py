@@ -117,13 +117,13 @@ def rallyCars(cursor, conn, driver):
                 if soup and len(soup.find_all('tr')) > 5:
                     print("More than 5 rows found.")
                     break
-                elif x == 10:
+                elif x == 5:
                     print(f"{x} tries have been made. Skipping...")
                     return
                 else:
                     print(
                         f"Current number of rows: {len(soup.find_all('tr')) if soup else 0}")
-                    print(f"{x} of 10 test have been made!")
+                    print(f"{x} of 5 test have been made!")
                     print("Sleeping...")
                     sleep()  # Sleeping
 
