@@ -1,7 +1,7 @@
 from flask import Flask, render_template, send_from_directory, request, jsonify
 from Olika_hemsidor.alla import main as rallygrabber
 from elo_database import main as elograbber
-from Olika_hemsidor.database import datebase_start as datebase_start
+from Olika_hemsidor.database import database_start as database_start
 # from apscheduler.schedulers.background import BackgroundScheduler
 import json
 import sqlite3
@@ -238,6 +238,7 @@ def index():
 
 
 if __name__ == "__main__":
+    database_start()
     app.run(debug=True)
 # if __name__ == "__main__":
 #    try:
