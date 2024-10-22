@@ -3,7 +3,7 @@ import time
 from bs4 import BeautifulSoup
 import csv
 import re
-from .database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
+from .database import database_connect, database_exit, database_add, database_start, database_add_rally, database_check_if_rally_added
 
 
 from selenium.webdriver.common.by import By
@@ -19,7 +19,7 @@ def sleep():
 
 def main(max_rallys):
     driver = webdriver.Chrome()
-    datebase_start()
+    database_start()
     cursor, conn = database_connect()
 
     rallyList = rallysGraber(driver, max_rallys)
@@ -128,7 +128,7 @@ def rallyCars(cursor, conn, driver):
                     sleep()  # Sleeping
 
             # Prep
-            #with open("Tävlingar/infiniteracing/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
+            # with open("Tävlingar/infiniteracing/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
             #    writer = csv.writer(file)
             #    header = ["total_place", "klass_place",
             #              "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
@@ -206,7 +206,7 @@ def construct_data(cursor, conn, data, rallyName, rallyDate):
         database_add(cursor, conn, rallyName, rallyDate, data["driver"], data["name"], data["klubb"], data["klass"],
                      data["driverklass"], data["time"], data["number"], data["total_place"], data["klass_place"])
 
-    #if data["name"]:
+    # if data["name"]:
     #    with open("Tävlingar/infiniteracing/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
     #        writer = csv.writer(file)
     #        writer.writerow([data["total_place"], data["klass_place"], data["number"],

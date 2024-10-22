@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 from bs4 import BeautifulSoup
 import csv
-from .database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
+from .database import database_connect, database_exit, database_add, database_start, database_add_rally, database_check_if_rally_added
 
 
 from selenium.webdriver.common.by import By
@@ -20,7 +20,7 @@ def sleep():
 
 def main(max_rallys):
     driver = webdriver.Chrome()
-    datebase_start()
+    database_start()
     cursor, conn = database_connect()
 
     rallyList, rallyData, driver = rallysGraber(driver, max_rallys)

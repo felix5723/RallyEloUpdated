@@ -1,13 +1,13 @@
 import requests
 import csv
 from bs4 import BeautifulSoup
-from .database import database_connect, database_exit, database_add, datebase_start, database_add_rally, database_check_if_rally_added
+from .database import database_connect, database_exit, database_add, database_start, database_add_rally, database_check_if_rally_added
 
 MAX_RALLYS = 4
 
 
 def main(max_rallys):
-    datebase_start()
+    database_start()
     cursor, conn = database_connect()
 
     urls = grabRallys(max_rallys)
@@ -30,7 +30,7 @@ def main(max_rallys):
             print(rallyName)
             print(rallyDate)
 
-            #with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
+            # with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'w', newline='', encoding="utf-8") as file:
             #    writer = csv.writer(file)
             #    header = ["total_place", "klass_place",
             #              "number", "driverklass", "name", "klubb", "klass",  "driver", "time"]
@@ -114,7 +114,7 @@ def construct_data(cursor, conn, data, rallyName, rallyDate):
         database_add(cursor, conn, rallyName, rallyDate, data["driver"], data["name"], data["klubb"], data["klass"],
                      data["driverklass"], data["time"], data["number"], data["total_place"], data["klass_place"])
 
-    #if data["name"]:
+    # if data["name"]:
     #    with open("Tävlingar/raceconsult/" + rallyDate + " " + rallyName + '.csv', 'a', newline='', encoding="utf-8") as file:
     #        writer = csv.writer(file)
     #        writer.writerow([data["total_place"], data["klass_place"], data["number"],
