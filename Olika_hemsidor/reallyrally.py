@@ -3,11 +3,10 @@ import time
 from bs4 import BeautifulSoup
 import csv
 from .database import database_connect, database_exit, database_add, database_start, database_add_rally, database_check_if_rally_added
+from .selenium import selenium_grab
 
 
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+By, WebDriverWait, EC, driver = selenium_grab()
 
 URL = 'https://reallyrally.se/#/race'
 
