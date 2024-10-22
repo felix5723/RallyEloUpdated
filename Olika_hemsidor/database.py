@@ -1,11 +1,16 @@
 import sqlite3
+import os
 
 
 def database_connect():
-    # Connect to the database (it will create the file if it doesn't exist)
-    # You can change the name as needed
-    conn = sqlite3.connect('my_database.db')
+    # Use an absolute path for the SQLite database
+    # Get the absolute path of the current file
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    # Define the path for the SQLite database
+    db_path = os.path.join(BASE_DIR, 'my_database.db')
 
+    # Connect to the SQLite database
+    conn = sqlite3.connect(db_path)
     cursor = conn.cursor()
     return cursor, conn
 
@@ -29,10 +34,7 @@ def database_check_if_rally_added(cursor, conn, rallyName, rallyDate):
     cursor.execute(
         'SELECT * FROM rallys WHERE rallyName = ? AND rallyDate = ?', (rallyName, rallyDate))
     if_rally = cursor.fetchall()
-    if len(if_rally) == 0:
-        return False
-    else:
-        return True
+    return len(if_rally) != 0
 
 
 def database_check_if_user_added(cursor, conn, driver, name, klubb):
@@ -51,30 +53,24 @@ def database_check_if_user_added(cursor, conn, driver, name, klubb):
 
 
 def database_add(cursor, conn, rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place):
-    # Insert data
     user_id = database_check_if_user_added(cursor, conn, driver, name, klubb)
     cursor.execute(
-        'INSERT INTO userStats (user_id, rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)', (user_id, rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place))
+        'INSERT INTO userStats (user_id, rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        (user_id, rallyName, rallyDate, driver, name, klubb, klass, driverKlass, time, startnummer, total_place, klass_place))
 
-    # Commit the changes
     conn.commit()
     return cursor, conn
 
 
 def database_add_rally(cursor, conn, rallyName, rallyDate):
-    # Insert data
     cursor.execute(
         'INSERT INTO rallys (rallyName, rallyDate) VALUES (?, ?)', (rallyName, rallyDate))
-
-    # Commit the changes
     conn.commit()
     return cursor, conn
 
 
-def datebase_start():
+def database_start():
     cursor, conn = database_connect()
-    data = {'total_place': '27', 'klass_place': '1', 'number': '1', 'klass': 'Ungdom', 'driverklass': 'U',
-            'time': '14:44,3', 'name': 'Ludvig Fransson', 'klubb': 'Vimmerby MS', 'driver': 'driver'}
 
     # Create a table for users
     cursor.execute('''
@@ -85,13 +81,13 @@ def datebase_start():
         klubb TEXT NOT NULL
     )
     ''')
-    conn.commit
+    conn.commit()  # Ensure to call commit() correctly
 
     # Create a table for userStats
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS userStats (
         id INTEGER PRIMARY KEY,
-        user_id INTEGER,  -- Add user_id column for foreign key reference,
+        user_id INTEGER,  
         rallyName TEXT NOT NULL,
         rallyDate TEXT NOT NULL,
         driver TEXT NOT NULL,
@@ -103,10 +99,10 @@ def datebase_start():
         startnummer INTEGER,
         total_place INTEGER,
         klass_place INTEGER,
-        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE  -- Define the foreign key constraint here
+        FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
     )
     ''')
-    conn.commit
+    conn.commit()
 
     # Create a table for rallys
     cursor.execute('''
@@ -116,21 +112,23 @@ def datebase_start():
         rallyDate TEXT NOT NULL
     )
     ''')
-    conn.commit
+    conn.commit()
 
     # Create a table for elo
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS userselo (
         id INTEGER PRIMARY KEY,
-        user_id INTEGER,  -- Add user_id column for foreign key reference,
-        rallys_id INTEGER,  -- Add rallys_id column for foreign key reference,
+        user_id INTEGER,
+        rallys_id INTEGER,
         rallyName TEXT NOT NULL,
         rallyDate TEXT NOT NULL,
         total_elo TEXT NOT NULL,
-        klass_elo TEXT NOT NULL
+        klass_elo TEXT NOT NULL,
+        FOREIGN KEY (user_id) REFERENCES users(id),
+        FOREIGN KEY (rallys_id) REFERENCES rallys(id)
     )
     ''')
-    conn.commit
+    conn.commit()
 
     # Close the cursor and connection
     database_exit(cursor, conn)
